@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="dialog:*/*" template="/WEB-INF/view/layout/emptyLayout.jsp">
+		<put-attribute name="title" value="FDemo" />
+		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}/{3}.jsp" />
+	</definition>
+	<definition name="tab:*/*" template="/WEB-INF/view/layout/emptyLayout.jsp">
+		<put-attribute name="title" value="FDemo" />
+		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}/{3}.jsp" />
+	</definition>
+	<definition name="ff0001/*" template="/WEB-INF/view/layout/authLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/view/ff0001/{1}.jsp" />
+	</definition>
+	<definition name="exception/*" template="/WEB-INF/view/layout/emptyLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/view/common/exception/{1}.jsp" />
+	</definition>
+	<definition name="error/*" template="/WEB-INF/view/layout/emptyLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/view/common/error/{1}.jsp" />
+	</definition>
+	<definition name="*/*" template="/WEB-INF/view/layout/layout.jsp">
+		<put-attribute name="title" value="FDemo" /> 
+		<put-attribute cascade="true" name="menu" value="/WEB-INF/view/layout/tiles/menu.jsp" />
+		<put-attribute cascade="true" name="body" value="/WEB-INF/view/{1}/{2}.jsp" />
+		<put-attribute cascade="true" name="footer" value="/WEB-INF/view/layout/tiles/footer.jsp" />
+	</definition>
+</tiles-definitions>
