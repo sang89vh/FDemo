@@ -14,27 +14,28 @@
 		<form name='loginForm' id="form-signup" class="form-signup"
 			action="<c:url value='/login' />" method='POST'>
 
-			<h5 class="form-signup-heading text-center">ĐĂNG NHẬP MBACKEND</h5>
-			<label for="inputEmail" class="sr-only">Địa chỉ email</label> 
+			<h5 class="form-signup-heading text-center">LOGIN TO F-SYSTEM</h5>
+			<label for="inputEmail" class="sr-only">Your email</label> 
 			<input type='text' 
 				   name='USER_NAME' 
 				   id='USER_NAME' 
 				   class='form-control'
-				   placeholder="Địa chỉ email" 
+				   placeholder="Enter your email" 
 				   required 
 				   autofocus />
 				
-			<label for="inputPassword" class="sr-only">Mật khẩu</label> 
+			<label for="inputPassword" class="sr-only">Your Password</label> 
 			<input type='PASSWORD' 
 				   name='PASSWORD'
-				   id="inputPassword" 
+				   id="inputPassword"
+				   placeholder="Enter your password" 
+				   required 
 				   class="form-control"
 				   />
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 			
-			<button id="btn-signup-submit" 	data-loading-text="Loading..." class="btn btn-lg btn-primary btn-block" type="submit" >Đăng nhập</button>
-			<a class="btn btn-lg btn-warning btn-block" type="button" href="../user/signup">Chưa có tài khoản</a>
+			<button id="btn-signup-submit" 	data-loading-text="Loading..." class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
 
 		</form>
 	</div>

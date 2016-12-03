@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,23 +29,27 @@ public class FF0001Controller extends FBaseController {
 	@Autowired
 	private StudentService studentService;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {
-		StudentLogin studentLogin = new StudentLogin();
-		model.addAttribute("studentLogin", studentLogin);
-		return "ff0001/ff000101";
-	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(
-			@ModelAttribute("studentLogin") StudentLogin studentLogin) {
-		boolean found = studentService.getStudentByLogin(
-				studentLogin.getUserName(), studentLogin.getPassword());
-		if (found) {
-			return "ff0000/success";
-		} else {
-			return "ff0000/failure";
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(
+			ModelAndView mav,
+			@RequestParam(value = "error", 
+			required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout
+			
+			) {
+
+		if (error != null) {
+			mav.addObject("error", "Invalid username and password!");
 		}
+
+		if (logout != null) {
+			mav.setViewName("ff0001/ff000101");
+		}else{
+			mav.setViewName("redirect:/ff0000/index");
+		}
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
