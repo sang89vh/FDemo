@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 	Exception -->
+	<bean class="com.ff.fdemo.exception.ExceptionHandler">
+		<property name="defaultErrorView" value="exception/exception"/>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.sql.SQLException">exception/sql</prop> 
+				<prop key="java.lang.Exception">exception/exception</prop>
+			</props>
+		</property>
+	</bean>
+		
+</beans>

@@ -10,6 +10,7 @@
 			/WEB-INF/spring/spring-database.xml,
 			/WEB-INF/spring/spring-security.xml,
 			/WEB-INF/spring/spring-tiles.xml,
+			/WEB-INF/spring/spring-exception.xml,
 		</param-value>
 	</context-param>
 	<!--

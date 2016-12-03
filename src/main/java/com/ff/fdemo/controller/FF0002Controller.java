@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ff.fdemo.service.StudentService;
+import com.ff.fdemo.service.impl.StudentService;
 
 @Controller
 @SessionAttributes("ff0002")

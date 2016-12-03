@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ff.fdemo.model.Student;
 import com.ff.fdemo.model.StudentLogin;
-import com.ff.fdemo.service.StudentService;
+import com.ff.fdemo.service.impl.StudentService;
 
 @Controller
 @SessionAttributes("student")

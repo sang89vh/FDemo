@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ff.fdemo.model.Student;
 import com.ff.fdemo.model.StudentLogin;
-import com.ff.fdemo.service.StudentService;
+import com.ff.fdemo.service.impl.StudentService;
 
 @Controller
 @SessionAttributes("ff0001")

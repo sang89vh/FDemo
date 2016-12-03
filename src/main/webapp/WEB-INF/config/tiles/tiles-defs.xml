@@ -14,10 +14,10 @@
 	<definition name="ff0001/*" template="/WEB-INF/views/layout/authLayout.jsp">
 		<put-attribute name="body" value="/WEB-INF/views/ff0001/{1}.jsp" />
 	</definition>
-	<definition name="exception/*" template="/WEB-INF/views/layout/emptyLayout.jsp">
-		<put-attribute name="body" value="/WEB-INF/views/common/exception/{1}.jsp" />
+	<definition name="exception/*" template="/WEB-INF/views/layout/errorLayout.jsp">
+		<put-attribute name="body" value="/WEB-INF/views/exception/{1}.jsp" />
 	</definition>
-	<definition name="error/*" template="/WEB-INF/views/layout/emptyLayout.jsp">
+	<definition name="error/*" template="/WEB-INF/views/layout/errorLayout.jsp">
 		<put-attribute name="body" value="/WEB-INF/views/common/error/{1}.jsp" />
 	</definition>
 	<definition name="*/*" template="/WEB-INF/views/layout/layout.jsp">

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ff0002" >
+	<select id="getHistoricalPriceBySymbol" parameterType="com.ff.fdemo.model.FBaseModel" resultType="com.ff.fdemo.model.FBaseModel">
+		SELECT HIS_PRICE_ID,
+			   SYMBOL,
+			   TRADING_DATE,
+			   OPEN_PRICE,
+			   HIGH_PRICE,
+			   LOW_PRICE,
+			   CLOSE_PRICE,
+			   VOLUME,
+			   MARKET
+		FROM STO_HIS_PRICE
+	</select>
+</mapper>

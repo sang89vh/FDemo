@@ -1,4 +1,4 @@
-package com.ff.fdemo.service;
+package com.ff.fdemo.service.impl;
 
 import com.ff.fdemo.model.Student;
 
