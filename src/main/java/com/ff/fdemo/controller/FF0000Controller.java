@@ -37,12 +37,12 @@ public class FF0000Controller extends FFBaseController {
 			@ModelAttribute FF0002Model prm
 			) throws SQLException {
 		mav.setViewName("ff0000/ff000001");
-		List<FF0002Model> data = ff0002Service.getHistoricalPriceBySymbol(prm);
-		System.out.println(data);
-		
-		String pathFile = "C:\\Users\\Admin\\OneDrive\\FDemoSrc\\src\\main\\resources\\dailyprice\\HOSE.xls";
-		
-		ff0002Service.insertHistoricalPrice(pathFile);
+//		List<FF0002Model> data = ff0002Service.getHistoricalPriceBySymbol(prm);
+//		System.out.println(data);
+//		
+//		String pathFile = "C:\\Users\\Admin\\OneDrive\\FDemoSrc\\src\\main\\resources\\dailyprice\\HOSE.xls";
+//		
+//		ff0002Service.insertHistoricalPrice(pathFile);
 		
 		return mav;
 

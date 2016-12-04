@@ -19,6 +19,8 @@
 <link  href="${ctxPath}/resources/css/flat-ui.min.css" rel="stylesheet" type="text/css" />
 <link   href="${ctxPath}/resources/css/jsgrid.min.css" rel="stylesheet" type="text/css"/>
 <link   href="${ctxPath}/resources/css/jsgrid-theme.min.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctxPath}/resources/css/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctxPath}/resources/css/fullcalendar.print.css" rel='stylesheet' media='print' type="text/css"/>
 
 <link  href="${ctxPath}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
 
@@ -27,7 +29,9 @@
 <script type="text/javascript" src="${ctxPath}/resources/js/pace.min.js"></script>
 <script type="text/javascript" src="${ctxPath}/resources/js/flat-ui.min.js"></script>
 <script type="text/javascript" src="${ctxPath}/resources/js/sweetalert.min.js"></script>
-
-    
 <script type="text/javascript" src="${ctxPath}/resources/js/jsgrid.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/moment.min.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/fullcalendar.min.js"></script>
+
+
 <script type="text/javascript" src="${ctxPath}/resources/js/fdemo.js"></script>
