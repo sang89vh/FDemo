@@ -7,9 +7,16 @@ $(function() {
         height: "auto",
         width: "100%",
  
+        filtering: true,
+        editing: true,
         sorting: true,
-        paging: false,
+        paging: true,
         autoload: true,
+ 
+        pageSize: 15,
+        pageButtonCount: 5,
+ 
+        deleteConfirm: "Do you really want to delete the client?",
  
         controller: {
             loadData: function() {
@@ -31,8 +38,8 @@ $(function() {
         },
  
         fields: [
-            { name: "symbol", type: "text" }
-           
+            { name: "symbol", type: "text" },
+            { type: "control" },
         ]
     });
  
