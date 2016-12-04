@@ -1,0 +1,3 @@
+FF0000-Main page
+FF0001-Login/logout
+FF0002-Historical price

@@ -6,7 +6,7 @@ import java.util.Map;
 public enum ErrorCodeEnumImpl implements ErrorCodeEnum {
 
 	UNKNOWN_ERROR("UNKNOWN_ERROR","fdemo.exception.message.unknown_error"), 
-	
+	INVALID_PARAMS("INVALID_PARAMS","fdemo.exception.message.invalid_params"),
 	// FIXME: add more here
 
 	;

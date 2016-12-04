@@ -23,7 +23,7 @@ import com.ff.fdemo.service.impl.StudentService;
 @Controller
 @SessionAttributes("ff0001")
 @RequestMapping("/ff0001")
-public class FF0001Controller extends FBaseController {
+public class FF0001Controller extends FFBaseController {
 
 	private static final Logger logger = LogManager.getLogger(FF0001Controller.class);
 	@Autowired

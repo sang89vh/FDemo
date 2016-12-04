@@ -23,7 +23,7 @@ import com.ff.fdemo.service.impl.StudentService;
 @Controller
 @SessionAttributes("ff0000")
 @RequestMapping("/ff0000")
-public class FF0000Controller extends FBaseController {
+public class FF0000Controller extends FFBaseController {
 
 	private static final Logger logger = LogManager.getLogger(FF0000Controller.class);
 	@Autowired
@@ -39,6 +39,11 @@ public class FF0000Controller extends FBaseController {
 		mav.setViewName("ff0000/ff000001");
 		List<FF0002Model> data = ff0002Service.getHistoricalPriceBySymbol(prm);
 		System.out.println(data);
+		
+		String pathFile = "C:\\Users\\Admin\\OneDrive\\FDemoSrc\\src\\main\\resources\\dailyprice\\HOSE.xls";
+		
+		ff0002Service.insertHistoricalPrice(pathFile);
+		
 		return mav;
 
 	}
