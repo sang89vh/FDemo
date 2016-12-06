@@ -12,39 +12,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.util.StringUtils;
 
-import com.ff.fdemo.exception.ErrorCodeEnumImpl;
-import com.ff.fdemo.exception.FFException;
-
 public class FFUtils {
 	private static final Logger logger = LogManager.getLogger(FFUtils.class);
 	private static final SimpleDateFormat YYYYMMDD_DATE_FORMAT = new SimpleDateFormat("yyyyMMdd");
 	private static final SimpleDateFormat YYYY_MM_DD_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 	
-	public static Date convertInputDateToJavaDate(String mydate) throws FFException {
-		if (StringUtils.isEmpty(mydate)) {
-			return null;
-		}
-		try {
-			// yyyy-MM-dd
-			if (mydate.contains("-")) {
-
-				return YYYY_MM_DD_DATE_FORMAT.parse(mydate);
-
-				// yyyyMMdd
-			} else {
-
-				return YYYYMMDD_DATE_FORMAT.parse(mydate);
-
-			}
-
-		} catch (ParseException e) {
-			logger.error(e.getMessage(), e);
-			FFException wbex = new FFException(
-					ErrorCodeEnumImpl.INVALID_PARAMS);
-			throw wbex;
-		}
-
-	}
 	
 	public static Long convertInputStringToLong(String input) {
 		if (StringUtils.isEmpty(input)) {
@@ -65,6 +37,12 @@ public class FFUtils {
 			logger.error(e.getMessage(), e);
 		}
 		return d;
+	}
+	public static String getCurrentDateStr() {
+		Calendar cl = Calendar.getInstance();
+		Date currentDate = cl.getTime();
+		String strCurrentDate = YYYY_MM_DD_DATE_FORMAT.format(currentDate);
+		return strCurrentDate;
 	}
 	
 	public static List<String> convertStringToInSQLPrm(String input) {

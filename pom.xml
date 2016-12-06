@@ -9,9 +9,9 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>5.0.0.M3</org.springframework-version>
+		<org.springframework-version>4.3.4.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.8.5</org.aspectj-version>
-		<org.slf4j-version>1.7.12</org.slf4j-version>
+		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<jackson.databind-version>2.5.1</jackson.databind-version>
 		<apache.tiles-version>3.0.7</apache.tiles-version>
 		<org.springsecurity-version>4.2.0.RELEASE</org.springsecurity-version>
@@ -21,11 +21,6 @@
 			<id>3rdparty</id>
 			<name>atlassian</name>
 			<url>https://maven.atlassian.com/3rdparty/</url>
-		</repository>
-		<repository>
-			<id>alfresco</id>
-			<name>alfresco</name>
-			<url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
 		</repository>
 		<repository>
 			<id>nuxeo</id>
@@ -115,11 +110,13 @@
 			<version>1.16</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.4-DBCP330</version>
+			<version>1.4</version>
 		</dependency>
+
 
 		<!-- Logging -->
 		<dependency>
@@ -344,6 +341,12 @@
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 			<version>2.2.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.1</version>
 		</dependency>
 
 	</dependencies>

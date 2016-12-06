@@ -8,7 +8,7 @@ public class FFConfig implements FFCommCode{
 
 	public static String BOX_USERNAME;
 
-	@Value("${box_username}")
+	@Value("${baasbox.user}")
 	public void setBoxUsername(String boxUsername) {
 		BOX_USERNAME = boxUsername;
 	}

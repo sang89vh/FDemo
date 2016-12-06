@@ -1,7 +1,6 @@
 package com.ff.fdemo.controller;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ff.fdemo.model.FF0002Model;
 import com.ff.fdemo.service.IFF0002Service;
-import com.ff.fdemo.service.impl.StudentService;
 
 @Controller
 @SessionAttributes("ff0000")
@@ -26,8 +24,6 @@ import com.ff.fdemo.service.impl.StudentService;
 public class FF0000Controller extends FFBaseController {
 
 	private static final Logger logger = LogManager.getLogger(FF0000Controller.class);
-	@Autowired
-	private StudentService studentService;
 	
 	@Autowired
 	public IFF0002Service ff0002Service;
