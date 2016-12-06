@@ -21,6 +21,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.ff.fdemo.model" />
+		<property name="configLocation" value="classpath:/config/mybatis/mybatis-config.xml"/>
 		<property name="mapperLocations" value="classpath*:com/ff/fdemo/mappers/*.xml" />
 	</bean>
 
