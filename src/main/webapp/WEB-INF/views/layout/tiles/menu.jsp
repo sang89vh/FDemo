@@ -22,7 +22,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a> 
 					<span class="dropdown-arrow"></span>
 				<ul class="dropdown-menu">
-					<li><a href="<c:url value='/ff0001/login?logout' />">Logout</a></li>
+					<li><a href="<c:url value='/ff0001/logout' />">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>

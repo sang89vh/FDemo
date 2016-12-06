@@ -7,6 +7,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ff.fdemo.model.FF0002Model;
 import com.ff.fdemo.service.IFF0002Service;
-
+/**
+ * Just only index, view, 
+ * @author jack
+ *
+ */
 @Controller
 @SessionAttributes("ff0002")
 @RequestMapping("/ff0002")
@@ -28,7 +33,8 @@ public class FF0002Controller extends FFBaseController {
 			.getLogger(FF0002Controller.class);
 	@Autowired
 	private IFF0002Service ff0002Service;
-
+	
+	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView login(ModelAndView mav, @ModelAttribute FF0002Model prm)
 			throws SQLException {
@@ -44,7 +50,7 @@ public class FF0002Controller extends FFBaseController {
 		return data;
 	}
 
-	@RequestMapping(value = "/scheduler")
+	@RequestMapping(value = "/view01")
 	public String scheduler(Model model) {
 
 		logger.debug("scheduler");
@@ -59,7 +65,7 @@ public class FF0002Controller extends FFBaseController {
 	@Autowired
 	private SchedulerFactoryBean schedulerFactory;
 
-	@RequestMapping(value = "/scheduler", method = RequestMethod.POST)
+	@RequestMapping(value = "/data02", method = RequestMethod.POST)
 	public String doScheduler(Model model) {
 		logger.debug("doScheduler");
 		if (schedulerFactory.isRunning()) {
