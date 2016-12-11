@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -16,6 +18,7 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.ff.fdemo.model.FF0000Model;
 import com.ff.fdemo.scheduler.FFRunTask;
 
 public class FFDataFeed {
@@ -30,7 +33,7 @@ public class FFDataFeed {
 	 */
 	public static String downloadEOD(String strDate) throws IOException {
 		logger.debug("Start downloadEOD");
-		
+
 		String urlEOD = "http://www.bvsc.com.vn/Handlers/DownloadMetaStockDataEx.ashx?format=Excel&data=All&period=EOD&symbol=&fromDate="
 				+ strDate + "&toDate=" + strDate;
 		URL url = new URL(urlEOD);
@@ -42,11 +45,11 @@ public class FFDataFeed {
 		unzip(zipFilePath, destDir);
 		logger.debug("End downloadEOD");
 		return destDir;
-		
+
 	}
 
 	private static void unzip(String zipFilePath, String destDir) {
-		logger.debug("Start unzip:"+destDir);
+		logger.debug("Start unzip:" + destDir);
 		File dir = new File(destDir);
 		// create output directory if it doesn't exist
 		if (!dir.exists())
@@ -84,39 +87,45 @@ public class FFDataFeed {
 		logger.debug("End unzip");
 	}
 
-	public static void readRightEvent() throws IOException {
-		Document doc = Jsoup.connect(
-				"https://www.vndirect.com.vn/portal/lich-su-kien.shtml").get();
+	public static List<FF0000Model> readRightEvent() throws IOException {
+		Document doc = Jsoup.connect("https://www.vndirect.com.vn/portal/lich-su-kien.shtml").get();
 		Elements rightEvents = doc.body().select(".box_lichsukien");
-		System.out.println(rightEvents.html());
+		List<FF0000Model> data = new ArrayList<FF0000Model>();
 		if (rightEvents != null && rightEvents.size() > 0) {
 
 			Element rightEvent = rightEvents.get(0);
 			Elements trs = rightEvent.getElementsByTag("tr");
 			for (Element tr : trs) {
-				System.out.println("==============================");
 				Elements tds = tr.getElementsByTag("td");
-
-				// -Mã CK
+				FF0000Model re = new FF0000Model();
 				String symbol = tds.get(0).text();
-				System.out.println(symbol);
-				// -Loại sự kiện
+				re.setSymbol(symbol);
+
 				String eventType = tds.get(1).text();
-				System.out.println(eventType);
-				// -Ngày GDKHQ
-				String rightEventDate = tds.get(2).text().replaceAll("\\D+","");
-				System.out.println(rightEventDate);
-				// -Ngày chốt
-				String eventDate = tds.get(3).text().replaceAll("\\D+","");
-				System.out.println(eventDate);
-				// -Ngày thực hiện
-				String executeDate = tds.get(4).text().replaceAll("\\D+","");
-				System.out.println(executeDate);
-				// -Chi tiết
-				String detail = tds.get(5).text().replaceAll("\\D+","");
-				System.out.println(detail);
+				re.setEvent_type(eventType);
+
+				// ngay giao dich khong huong quyen
+				String rightEventDate = tds.get(2).text().replaceAll("\\D+", "");
+				re.setRight_date(rightEventDate);
+
+				// ngay dang ky cuoi cung
+				String registerDate = tds.get(3).text().replaceAll("\\D+", "");
+				re.setRegister_date(registerDate);
+
+				// ngay thuc hien quyen
+				String actionDate = tds.get(4).text().replaceAll("\\D+", "");
+				re.setAction_date(actionDate);
+
+				String content = tds.get(5).text().replaceAll("\\D+", "");
+				re.setContent(content);
+				
+				data.add(re);
 			}
+			
+			
 		}
+		
+		return data;
 
 	}
 
