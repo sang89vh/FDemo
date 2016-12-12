@@ -14,7 +14,7 @@ public interface IFFDao {
 
 	public int insert(String name, FFBaseModel prm) throws SQLException;
 
-	public FFBaseModel selectOne(String name, FFBaseModel parameter)
+	public Object selectOne(String name, FFBaseModel parameter)
 			throws SQLException;
 
 	public int update(String name, FFBaseModel parameter) throws SQLException;

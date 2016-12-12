@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ff.fdemo.model.FF0002Model;
+import com.ff.fdemo.scheduler.FFRunTask;
 import com.ff.fdemo.service.IFF0002Service;
 
 @Controller
@@ -27,13 +28,16 @@ public class FF0000Controller extends FFBaseController {
 	
 	@Autowired
 	public IFF0002Service ff0002Service;
+	
+	@Autowired
+	public FFRunTask ffRunTask;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView rightEvent(ModelAndView mav, HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute FF0002Model prm
 			) throws SQLException {
 		mav.setViewName("ff0000/ff000001");
-		
+		ffRunTask.doTask();
 		return mav;
 
 	}

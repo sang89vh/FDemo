@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ff0000" >
+	<insert id="insertRightEvent" parameterType="com.ff.fdemo.model.FF0000Model">
+		INSERT INTO sto_event_right(
+					event_right_id, 
+					
+					<if test="exchange !=null and exchange !='' "> 
+						exchange, 
+					</if>
+					<if test="event_type !=null and event_type !='' ">
+						event_type, 
+					</if>
+					<if test="right_date !=null">
+						right_date, 
+					</if>
+					<if test="register_date !=null">
+						register_date, 
+					</if>
+					<if test="action_date !=null">
+						action_date, 
+					</if>
+					<if test="content !=null and content !='' ">
+						content, 
+					</if>
+					<if test="event_percent !=null">
+						event_percent, 
+					</if>
+					<if test="current_price !=null">
+						current_price,
+					</if>
+					symbol
+				)
+			VALUES (
+					nextval('sto_event_right_event_right_id_seq'),
+					
+					<if test="exchange !=null and exchange !='' "> 
+						#{exchange}, 
+					</if>
+					<if test="event_type !=null and event_type !='' ">
+						#{event_type}, 
+					</if>
+					<if test="right_date !=null">
+						#{right_date}, 
+					</if>
+					<if test="register_date !=null">
+						#{register_date}, 
+					</if>
+					<if test="action_date !=null">
+						#{action_date}, 
+					</if>
+					<if test="content !=null and content !='' ">
+						#{content}, 
+					</if>
+					<if test="event_percent !=null">
+						#{event_percent}, 
+					</if>
+					<if test="current_price !=null">
+						#{current_price},
+					</if>
+					#{symbol}
+					)
+	</insert>
+	<select id="checkRightEvent" parameterType="com.ff.fdemo.model.FF0000Model" resultType="int">
+		select count(event_right_id)
+			from sto_event_right
+			where symbol = #{symbol}
+				and event_type = #{event_type}
+				and to_char(right_date, 'yyyy-mm-dd hh:mm:ss') = #{right_date}				
+	
+	</select>
+	<select id="searchRightEventBySymbol" parameterType="com.ff.fdemo.model.FF0000Model" resultType="com.ff.fdemo.model.FF000001Model">
+		select  event_right_id as id,
+				symbol as resourceId,
+				to_char(right_date,'') start,
+				to_char(right_date,'') end,
+				symbol||':'||event_type title
+		from sto_event_right
+		where right_date is not null
+			<if test="current_price !=null">
+				and symbol = #{symbol}
+			</if>
+				
+	</select>
+</mapper>

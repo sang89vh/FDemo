@@ -37,11 +37,12 @@ public class FF0000ServiceImpl implements IFF0000Service {
 				
 				//check if this event existing on db then do nothing else insert to db
 				//check existing on db
+				Boolean isntExist = ff0000Dao.checkRightEvent(prm);
+				if(isntExist){
+					//doesn't existing then insert to db
+					ff0000Dao.insertRightEvent(prm);
+				}
 				
-				//doesn't existing
-				
-				//else insert to db
-				ff0000Dao.insertRightEvent(prm);
 			}
 		} catch (IOException e) {
 			logger.error(e.getMessage(),e);

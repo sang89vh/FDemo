@@ -14,9 +14,9 @@ import org.springframework.util.StringUtils;
 
 public class FFUtils {
 	private static final Logger logger = LogManager.getLogger(FFUtils.class);
-	private static final SimpleDateFormat YYYYMMDD_DATE_FORMAT = new SimpleDateFormat("yyyyMMdd");
+	private static final SimpleDateFormat DDMMYYYY_DATE_FORMAT = new SimpleDateFormat("ddMMyyyy");
+	private static final SimpleDateFormat DD_MM_YYYY_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 	private static final SimpleDateFormat YYYY_MM_DD_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-
 	public static Long convertInputStringToLong(String input) {
 		if (StringUtils.isEmpty(input)) {
 			return null;
@@ -29,10 +29,10 @@ public class FFUtils {
 	public static Date getCurrentDate() {
 		Calendar cl = Calendar.getInstance();
 		Date currentDate = cl.getTime();
-		String strCurrentDate = YYYYMMDD_DATE_FORMAT.format(currentDate);
+		String strCurrentDate = DDMMYYYY_DATE_FORMAT.format(currentDate);
 		Date d = null;
 		try {
-			d = YYYYMMDD_DATE_FORMAT.parse(strCurrentDate);
+			d = DDMMYYYY_DATE_FORMAT.parse(strCurrentDate);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(), e);
 		}
@@ -76,10 +76,10 @@ public class FFUtils {
 	public static Date convertStringToDate(String str_right_date) throws ParseException {
 		if (StringUtils.isEmpty(str_right_date)) {
 			return null;
-		} else if (str_right_date.contains("-")) {
-			return YYYY_MM_DD_DATE_FORMAT.parse(str_right_date);
+		} else if (str_right_date.contains("/")) {
+			return DD_MM_YYYY_DATE_FORMAT.parse(str_right_date);
 		} else {
-			return YYYYMMDD_DATE_FORMAT.parse(str_right_date);
+			return DDMMYYYY_DATE_FORMAT.parse(str_right_date);
 		}
 
 	}

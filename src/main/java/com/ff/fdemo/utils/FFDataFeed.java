@@ -18,12 +18,12 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.ff.fdemo.config.FFConfig;
 import com.ff.fdemo.model.FF0000Model;
 import com.ff.fdemo.scheduler.FFRunTask;
 
 public class FFDataFeed {
 	private static final Logger logger = LoggerFactory.getLogger(FFRunTask.class);
-	private static String pathDownload = "F:\\1_IDE\\A2M IDE\\workspace\\eGovFrameDev-3.5.1-64bit\\workspace\\TestSpringMVC\\src\\main\\resources\\eod";
 
 	/**
 	 * 
@@ -34,11 +34,11 @@ public class FFDataFeed {
 	public static String downloadEOD(String strDate) throws IOException {
 		logger.debug("Start downloadEOD");
 
-		String urlEOD = "http://www.bvsc.com.vn/Handlers/DownloadMetaStockDataEx.ashx?format=Excel&data=All&period=EOD&symbol=&fromDate="
+		String urlEOD = FFConfig.DOWNLOAD_EOD_URL
 				+ strDate + "&toDate=" + strDate;
 		URL url = new URL(urlEOD);
-		String zipFilePath = pathDownload + "\\" + strDate + ".zip";
-		String destDir = pathDownload + "\\" + strDate;
+		String zipFilePath = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate + ".zip";
+		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate;
 		File file = new File(zipFilePath);
 
 		FileUtils.copyURLToFile(url, file);
@@ -88,13 +88,14 @@ public class FFDataFeed {
 	}
 
 	public static List<FF0000Model> readRightEvent() throws IOException {
-		Document doc = Jsoup.connect("https://www.vndirect.com.vn/portal/lich-su-kien.shtml").get();
+		Document doc = Jsoup.connect(FFConfig.DOWNLOAD_RIGHTEVENT_URL).get();
 		Elements rightEvents = doc.body().select(".box_lichsukien");
 		List<FF0000Model> data = new ArrayList<FF0000Model>();
 		if (rightEvents != null && rightEvents.size() > 0) {
 
 			Element rightEvent = rightEvents.get(0);
 			Elements trs = rightEvent.getElementsByTag("tr");
+			trs.remove(0);
 			for (Element tr : trs) {
 				Elements tds = tr.getElementsByTag("td");
 				FF0000Model re = new FF0000Model();
@@ -116,7 +117,7 @@ public class FFDataFeed {
 				String actionDate = tds.get(4).text().replaceAll("\\D+", "");
 				re.setAction_date(actionDate);
 
-				String content = tds.get(5).text().replaceAll("\\D+", "");
+				String content = tds.get(5).text();
 				re.setContent(content);
 				
 				data.add(re);

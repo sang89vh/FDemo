@@ -25,11 +25,12 @@ public class FF0002ServiceImpl implements IFF0002Service {
 	}
 
 	@Transactional
-	public void insertHistoricalPrice(String pathFile) throws SQLException {
+	public void insertHistoricalPrice(String pathFile,String exchange) throws SQLException {
 		try {
 			List<FF0002Model> data = ReadDailyPriceExcel.readDailyPrice(pathFile);
 			
 			for (FF0002Model prm : data) {
+				prm.setMarket(exchange);
 				ff0002Dao.insertHistoricalPrice(prm);
 			}
 		} catch (IOException e) {

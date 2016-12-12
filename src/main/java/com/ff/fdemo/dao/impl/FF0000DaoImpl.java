@@ -1,5 +1,6 @@
 package com.ff.fdemo.dao.impl;
 
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -24,6 +25,16 @@ public class FF0000DaoImpl extends FFBaseDao implements IFF0000Dao{
 	public void insertRightEvent(FF0000Model prm) throws SQLException {
 		
 		insert("insertRightEvent", prm);
+		
+	}
+
+	public boolean checkRightEvent(FF0000Model prm) throws SQLException {
+		Integer count = (Integer) selectOne("checkRightEvent", prm);
+		if(count == 0){
+			return true;
+		}else{
+			return false;
+		}
 		
 	}
 

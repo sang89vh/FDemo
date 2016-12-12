@@ -39,7 +39,7 @@ public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
 		return data;
 	}
 
-	public FFBaseModel selectOne(String name, FFBaseModel parameter)
+	public Object selectOne(String name, FFBaseModel parameter)
 			throws SQLException {
 		return getSqlSession().selectOne(mNamespace + "." + name, parameter);
 	}

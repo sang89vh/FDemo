@@ -1,5 +1,6 @@
 package com.ff.fdemo.scheduler;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -28,9 +29,9 @@ public class FFRunTask {
 		String currentDate = FFUtils.getCurrentDateStr();
 		try {
 			String destDir = FFDataFeed.downloadEOD(currentDate);
-			ff0002Service.insertHistoricalPrice(destDir + "\\HOSE.xls");
-			ff0002Service.insertHistoricalPrice(destDir + "\\HNX.xls");
-			ff0002Service.insertHistoricalPrice(destDir + "\\UPCOM.xls");
+			ff0002Service.insertHistoricalPrice(destDir + File.separator + "HOSE.xls","HOSE");
+			ff0002Service.insertHistoricalPrice(destDir + File.separator + "HNX.xls","HNX");
+			ff0002Service.insertHistoricalPrice(destDir + File.separator + "UPCOM.xls","UPCOM");
 			
 			ff0000Service.insertRightEvent();
 			
@@ -38,7 +39,7 @@ public class FFRunTask {
 		} catch (IOException e) {
 			logger.error(e.getMessage(), e);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 
 		logger.debug("End task");

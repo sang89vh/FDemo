@@ -9,5 +9,5 @@ public interface IFF0002Service {
 	public List<FF0002Model> getHistoricalPriceBySymbol(FF0002Model prm)
 			throws SQLException ;
 	
-	public void insertHistoricalPrice(String pathFile) throws SQLException;
+	public void insertHistoricalPrice(String pathFile,String exchange) throws SQLException;
 }

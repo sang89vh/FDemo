@@ -8,4 +8,6 @@ import com.ff.fdemo.model.FF0000Model;
 public interface IFF0000Dao {
 	public List<FF0000Model> getRightEventBySymbol(FF0000Model prm) throws SQLException;
 	public void insertRightEvent(FF0000Model prm) throws SQLException;
+	public boolean checkRightEvent(FF0000Model prm) throws SQLException;
+	
 }
