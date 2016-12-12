@@ -33,7 +33,7 @@
 	-->
 	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="myJob" />
-		<property name="cronExpression" value="0 0/15 17 ? * MON-FRI" /> <!-- on the hour 2 weekdays -->
+		<property name="cronExpression" value="0 0 20 ? * MON-FRI" /> <!-- on the hour 2 weekdays -->
 	</bean>
 	
 	<!-- scheduler factory bean to bind,the executing code and time intervals together -->

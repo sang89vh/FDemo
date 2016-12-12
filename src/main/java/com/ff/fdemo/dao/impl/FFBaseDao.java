@@ -7,12 +7,18 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
+import com.ff.fdemo.controller.FF0000Controller;
 import com.ff.fdemo.dao.IFFDao;
 import com.ff.fdemo.model.FFBaseModel;
 
 public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
+	
+	private static final Logger logger = LogManager.getLogger(FFBaseDao.class);
+	
 	protected String mNamespace;
 
 	protected FFBaseDao(String namespace) {

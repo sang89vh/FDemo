@@ -37,7 +37,7 @@ public class FF0001Controller extends FFBaseController {
 			mav.addObject("error", "Invalid username and password!");
 		}
 
-		if (logout != null) {
+		if (logout != null||error != null) {
 			mav.setViewName("ff0001/ff000101");
 		}else{
 			mav.setViewName("redirect:/ff0000/index");

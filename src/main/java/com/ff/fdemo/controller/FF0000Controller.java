@@ -29,16 +29,10 @@ public class FF0000Controller extends FFBaseController {
 	public IFF0002Service ff0002Service;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView login(ModelAndView mav, HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView rightEvent(ModelAndView mav, HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute FF0002Model prm
 			) throws SQLException {
 		mav.setViewName("ff0000/ff000001");
-//		List<FF0002Model> data = ff0002Service.getHistoricalPriceBySymbol(prm);
-//		System.out.println(data);
-//		
-//		String pathFile = "C:\\Users\\Admin\\OneDrive\\FDemoSrc\\src\\main\\resources\\dailyprice\\HOSE.xls";
-//		
-//		ff0002Service.insertHistoricalPrice(pathFile);
 		
 		return mav;
 

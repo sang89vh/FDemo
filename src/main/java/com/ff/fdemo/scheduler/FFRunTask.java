@@ -2,11 +2,14 @@ package com.ff.fdemo.scheduler;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ff.fdemo.model.FF0000Model;
+import com.ff.fdemo.service.IFF0000Service;
 import com.ff.fdemo.service.IFF0002Service;
 import com.ff.fdemo.utils.FFDataFeed;
 import com.ff.fdemo.utils.FFUtils;
@@ -16,7 +19,10 @@ public class FFRunTask {
 			.getLogger(FFRunTask.class);
 	@Autowired
 	private IFF0002Service ff0002Service;
-
+	
+	@Autowired
+	private IFF0000Service ff0000Service;
+	
 	public void doTask() {
 		logger.debug("Start task");
 		String currentDate = FFUtils.getCurrentDateStr();
@@ -25,6 +31,9 @@ public class FFRunTask {
 			ff0002Service.insertHistoricalPrice(destDir + "\\HOSE.xls");
 			ff0002Service.insertHistoricalPrice(destDir + "\\HNX.xls");
 			ff0002Service.insertHistoricalPrice(destDir + "\\UPCOM.xls");
+			
+			ff0000Service.insertRightEvent();
+			
 
 		} catch (IOException e) {
 			logger.error(e.getMessage(), e);

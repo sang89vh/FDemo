@@ -4,16 +4,18 @@
 
 	<div class="div-login-container">
 
-		<c:if test="${not empty error}">
-			<div class="error">${error}</div>
-		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
+		
 
 		<form name='loginForm' id="form-signup" class="form-signup"
 			action="<c:url value='/login' />" method='POST'>
-
+			<div >
+				<c:if test="${not empty error}">
+					<div class="error" style="text-align: center;">${error}</div>
+				</c:if>
+				<c:if test="${not empty msg}">
+					<div class="msg" style="text-align: center;">${msg}</div>
+				</c:if>
+			</div>
 			<h5 class="form-signup-heading text-center">LOGIN TO F-SYSTEM</h5>
 			<label for="inputEmail" class="sr-only">Your email</label> 
 			<input type='text' 

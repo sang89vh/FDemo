@@ -16,8 +16,7 @@ public class FFUtils {
 	private static final Logger logger = LogManager.getLogger(FFUtils.class);
 	private static final SimpleDateFormat YYYYMMDD_DATE_FORMAT = new SimpleDateFormat("yyyyMMdd");
 	private static final SimpleDateFormat YYYY_MM_DD_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-	
-	
+
 	public static Long convertInputStringToLong(String input) {
 		if (StringUtils.isEmpty(input)) {
 			return null;
@@ -26,6 +25,7 @@ public class FFUtils {
 			return Long.parseLong(input);
 		}
 	}
+
 	public static Date getCurrentDate() {
 		Calendar cl = Calendar.getInstance();
 		Date currentDate = cl.getTime();
@@ -38,13 +38,14 @@ public class FFUtils {
 		}
 		return d;
 	}
+
 	public static String getCurrentDateStr() {
 		Calendar cl = Calendar.getInstance();
 		Date currentDate = cl.getTime();
 		String strCurrentDate = YYYY_MM_DD_DATE_FORMAT.format(currentDate);
 		return strCurrentDate;
 	}
-	
+
 	public static List<String> convertStringToInSQLPrm(String input) {
 
 		List<String> output = null;
@@ -64,11 +65,22 @@ public class FFUtils {
 
 		return output;
 	}
-	
+
 	public static void convertStringToInSQLPrm(Map<String, Object> parameter) {
-		String listStringId = (String)parameter.get("LIST_OBJECT_ID");
+		String listStringId = (String) parameter.get("LIST_OBJECT_ID");
 		List<String> listObjectId = convertStringToInSQLPrm(listStringId);
 		parameter.put("LIST_OBJECT_ID", listObjectId);
-		
+
+	}
+
+	public static Date convertStringToDate(String str_right_date) throws ParseException {
+		if (StringUtils.isEmpty(str_right_date)) {
+			return null;
+		} else if (str_right_date.contains("-")) {
+			return YYYY_MM_DD_DATE_FORMAT.parse(str_right_date);
+		} else {
+			return YYYYMMDD_DATE_FORMAT.parse(str_right_date);
+		}
+
 	}
 }
