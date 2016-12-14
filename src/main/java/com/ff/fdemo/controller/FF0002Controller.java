@@ -77,4 +77,5 @@ public class FF0002Controller extends FFBaseController {
 		}
 		return "ff0002/ff000202";
 	}
+	
 }

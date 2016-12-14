@@ -14,7 +14,10 @@ import org.springframework.util.StringUtils;
 
 public class FFUtils {
 	private static final Logger logger = LogManager.getLogger(FFUtils.class);
+	private static final SimpleDateFormat YYYYMMDD_DATE_FORMAT = new SimpleDateFormat("yyyyMMdd");
 	private static final SimpleDateFormat DDMMYYYY_DATE_FORMAT = new SimpleDateFormat("ddMMyyyy");
+	private static final SimpleDateFormat DDMMYYYY_DOT_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+	
 	private static final SimpleDateFormat DD_MM_YYYY_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 	private static final SimpleDateFormat YYYY_MM_DD_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 	public static Long convertInputStringToLong(String input) {
@@ -82,5 +85,34 @@ public class FFUtils {
 			return DDMMYYYY_DATE_FORMAT.parse(str_right_date);
 		}
 
+	}
+	public static Date convertYYYYMMDDToDate(String str_right_date) throws ParseException {
+		if (StringUtils.isEmpty(str_right_date)) {
+			return null;
+		} else {
+			return YYYYMMDD_DATE_FORMAT.parse(str_right_date);
+		}
+
+	}
+
+	public static String getCurrentDateYYYYMMDD() {
+		Calendar cl = Calendar.getInstance();
+		Date currentDate = cl.getTime();
+		String strCurrentDate = YYYYMMDD_DATE_FORMAT.format(currentDate);
+		return strCurrentDate;
+	}
+
+	public static String getCurrentDateDDMMYYYY() {
+		Calendar cl = Calendar.getInstance();
+		Date currentDate = cl.getTime();
+		String strCurrentDate = DDMMYYYY_DATE_FORMAT.format(currentDate);
+		return strCurrentDate;
+	}
+
+	public static String getCurrentDateDDDotMMDotYYYY() {
+		Calendar cl = Calendar.getInstance();
+		Date currentDate = cl.getTime();
+		String strCurrentDate = DDMMYYYY_DOT_DATE_FORMAT.format(currentDate);
+		return strCurrentDate;
 	}
 }

@@ -14,8 +14,9 @@
 		from sto_his_price
 		where 1=1
 		<if test="symbol != null and symbol != '' ">
-			and symbol = #{symbol}
+			and symbol = upper(#{symbol})
 		</if>
+		order by trading_date asc
 	</select>
 	<insert id="insertHistoricalPrice" parameterType="com.ff.fdemo.model.FF0002Model" useGeneratedKeys="true" keyProperty="his_price_id" keyColumn="his_price_id">
 		insert into sto_his_price
@@ -41,7 +42,7 @@
 					   #{low_price},
 					   #{close_price},
 					   #{volume},
-					   'hose'
+					   #{market}
 					)
 	</insert>
 </mapper>

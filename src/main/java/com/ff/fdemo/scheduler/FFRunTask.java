@@ -26,12 +26,25 @@ public class FFRunTask {
 	
 	public void doTask() {
 		logger.debug("Start task");
-		String currentDate = FFUtils.getCurrentDateStr();
 		try {
-			String destDir = FFDataFeed.downloadEOD(currentDate);
+			
+			/*
+			String destDir = FFDataFeed.downloadEODBVS(currentDate);
+			
 			ff0002Service.insertHistoricalPrice(destDir + File.separator + "HOSE.xls","HOSE");
 			ff0002Service.insertHistoricalPrice(destDir + File.separator + "HNX.xls","HNX");
 			ff0002Service.insertHistoricalPrice(destDir + File.separator + "UPCOM.xls","UPCOM");
+			*/
+			String strDate1 = FFUtils.getCurrentDateYYYYMMDD();//"20161215";
+			String strDate2 = FFUtils.getCurrentDateDDMMYYYY();//"15122016";
+			
+			String destDir = FFDataFeed.downloadEODCafeF(strDate1,strDate2);
+			
+			String strDateFile = FFUtils.getCurrentDateDDDotMMDotYYYY();//"15.12.2016";
+			
+			ff0002Service.insertHistoricalPriceCafeF(destDir + File.separator + "CafeF.HSX."+strDateFile+".csv","HSX");
+			ff0002Service.insertHistoricalPriceCafeF(destDir + File.separator + "CafeF.HNX."+strDateFile+".csv","HNX");
+			ff0002Service.insertHistoricalPriceCafeF(destDir + File.separator + "CafeF.UPCOM."+strDateFile+".csv","UPCOM");
 			
 			ff0000Service.insertRightEvent();
 			

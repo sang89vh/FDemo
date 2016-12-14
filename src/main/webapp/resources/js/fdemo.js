@@ -60,11 +60,11 @@ $(document).ajaxError(function(event, jqxhr, settings, exception) {
 
 $(document).ready(function() {
 	$(".fffancybox").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
+		maxWidth	: 2560,
+		maxHeight	: 1600,
 		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
+		width		: '98%',
+		height		: '98%',
 		autoSize	: false,
 		closeClick	: false,
 		openEffect	: 'none',

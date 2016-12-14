@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ff.fdemo.model.FF000001Model;
 import com.ff.fdemo.model.FF0000Model;
 import com.ff.fdemo.model.FF0002Model;
+import com.ff.fdemo.scheduler.FFRunTask;
 import com.ff.fdemo.service.IFF0000Service;
 import com.ff.fdemo.service.IFF0002Service;
 
@@ -36,11 +37,15 @@ public class FF0000Controller extends FFBaseController {
 	@Autowired
 	public IFF0000Service ff0000Service;
 	
+//	@Autowired
+//	public FFRunTask ffRunTask;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView rightEvent(ModelAndView mav, HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute FF0002Model prm
 			) throws SQLException {
+		
+		//ffRunTask.doTask();
 		mav.setViewName("ff0000/ff000001");
 		return mav;
 

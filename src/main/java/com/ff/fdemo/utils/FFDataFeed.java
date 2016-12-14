@@ -31,14 +31,30 @@ public class FFDataFeed {
 	 *            ex:2016-12-02
 	 * @throws IOException
 	 */
-	public static String downloadEOD(String strDate) throws IOException {
+	public static String downloadEODBVS(String strDate) throws IOException {
 		logger.debug("Start downloadEOD");
 
-		String urlEOD = FFConfig.DOWNLOAD_EOD_URL
+		String urlEOD = FFConfig.DOWNLOAD_EOD_BVS_URL
 				+ strDate + "&toDate=" + strDate;
 		URL url = new URL(urlEOD);
 		String zipFilePath = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate + ".zip";
 		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate;
+		File file = new File(zipFilePath);
+
+		FileUtils.copyURLToFile(url, file);
+		unzip(zipFilePath, destDir);
+		logger.debug("End downloadEOD");
+		return destDir;
+
+	}
+	
+	public static String downloadEODCafeF(String strDate1,String strDate2) throws IOException {
+		logger.debug("Start downloadEOD");
+
+		String urlEOD = FFConfig.DOWNLOAD_EOD_CAFEF_URL.replace("{0}", strDate1).replace("{1}", strDate2);
+		URL url = new URL(urlEOD);
+		String zipFilePath = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate1 + ".zip";
+		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate1;
 		File file = new File(zipFilePath);
 
 		FileUtils.copyURLToFile(url, file);
@@ -86,6 +102,8 @@ public class FFDataFeed {
 		}
 		logger.debug("End unzip");
 	}
+	
+	
 
 	public static List<FF0000Model> readRightEvent() throws IOException {
 		Document doc = Jsoup.connect(FFConfig.DOWNLOAD_RIGHTEVENT_URL).get();
@@ -139,7 +157,7 @@ public class FFDataFeed {
 
 	public static void main(String[] args) {
 		try {
-			FFDataFeed.readRightEvent();
+			FFDataFeed.downloadEODCafeF("20161215","15122016");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
