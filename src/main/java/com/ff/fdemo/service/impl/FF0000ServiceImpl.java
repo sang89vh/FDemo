@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ff.fdemo.dao.IFF0000Dao;
 import com.ff.fdemo.dao.impl.FF0000DaoImpl;
+import com.ff.fdemo.model.FF000001Model;
 import com.ff.fdemo.model.FF0000Model;
 import com.ff.fdemo.service.IFF0000Service;
 import com.ff.fdemo.utils.FFDataFeed;
@@ -23,9 +24,9 @@ public class FF0000ServiceImpl implements IFF0000Service {
 	public IFF0000Dao ff0000Dao;
 
 	@Transactional
-	public List<FF0000Model> getRightEventBySymbol(FF0000Model prm)
+	public List<FF000001Model> searchRightEventBySymbol(FF0000Model prm)
 			throws SQLException {
-		return ff0000Dao.getRightEventBySymbol(prm);
+		return ff0000Dao.searchRightEventBySymbol(prm);
 	}
 
 	@Transactional

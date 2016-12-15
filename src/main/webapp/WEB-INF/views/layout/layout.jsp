@@ -13,6 +13,9 @@
 <!-- 	<div class="container"> -->
 	<div >
 		<div class="col-md-12">
+		<div class="row">
+			<div id="script-warning" class=""></div>
+		</div>
 			<tiles:insertAttribute name="body" />
 		</div>
 	</div>

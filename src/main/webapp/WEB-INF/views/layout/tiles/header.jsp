@@ -23,10 +23,10 @@
 <link   href="${ctxPath}/resources/css/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
 <link   href="${ctxPath}/resources/css/fullcalendar.print.css" rel='stylesheet' media='print' type="text/css"/>
 <!-- Add fancyBox -->
-<link   href="${ctxPath}/resources/css/jquery.fancybox.css" type="text/css" media="screen" />
+<link   href="${ctxPath}/resources/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <!-- Optionally add helpers - button, thumbnail and/or media -->
-<link   href="${ctxPath}/resources/css/jquery.fancybox-buttons.css" type="text/css" media="screen" />
-<link   href="${ctxPath}/resources/css/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+<link   href="${ctxPath}/resources/css/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css" />
+<link   href="${ctxPath}/resources/css/jquery.fancybox-thumbs.css" rel="stylesheet" type="text/css" />
 
 <link  href="${ctxPath}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
 
@@ -43,11 +43,11 @@
 <script type="text/javascript" src="${ctxPath}/resources/js/amstock.js"></script>
 <script type="text/javascript" src="${ctxPath}/resources/js/bootstrap-notify.min.js"></script>
 <!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="${ctxPath}/resources/jquery.mousewheel-3.0.6.pack.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/jquery.fancybox-buttons.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/jquery.fancybox-media.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/jquery.fancybox-thumbs.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-buttons.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-thumbs.js"></script>
 
 <script type="text/javascript" src="${ctxPath}/resources/js/fdemo.js"></script>
 

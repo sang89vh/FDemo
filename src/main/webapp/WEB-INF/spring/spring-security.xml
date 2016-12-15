@@ -9,7 +9,7 @@
     <!-- enable use-expressions -->
 	<http auto-config="true">
 		<intercept-url pattern="/ff0001/**" access="permitAll"/>
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')"/>
 		<!-- access denied page -->
 		<access-denied-handler error-page="/ff0001/403" />
 		<!-- if user doesn't logged -->

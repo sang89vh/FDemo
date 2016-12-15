@@ -72,14 +72,19 @@
 	<select id="searchRightEventBySymbol" parameterType="com.ff.fdemo.model.FF0000Model" resultType="com.ff.fdemo.model.FF000001Model">
 		select  event_right_id as id,
 				symbol as resourceId,
-				to_char(right_date,'') start,
-				to_char(right_date,'') end,
-				symbol||':'||event_type title
+				to_char(right_date,'YYYY-MM-DD') as start,
+<!-- 				to_char(action_date,'YYYY-MM-DD') as end, -->
+				symbol||':'||content title
 		from sto_event_right
 		where right_date is not null
-			<if test="current_price !=null">
-				and symbol = #{symbol}
+			<if test="symbol !=null and symbol !='' ">
+				and symbol = upper(#{symbol})
 			</if>
+			<if test="event_type !=null and event_type !='' ">
+				and event_type = #{event_type}
+			</if>
+			
+			
 				
 	</select>
 </mapper>

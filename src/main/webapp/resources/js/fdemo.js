@@ -71,3 +71,18 @@ $(document).ready(function() {
 		closeEffect	: 'none'
 	});
 });
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+        	var oldVal = o[this.name];
+            o[this.name] = oldVal + "," + this.value;
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};

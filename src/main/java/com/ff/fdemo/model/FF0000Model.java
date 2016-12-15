@@ -20,6 +20,12 @@ public class FF0000Model extends FFBaseModel{
     private String content;
     private Long event_percent;
     private Long current_price;
+    
+    
+    private String  events;
+    private String start;
+    private String end;
+    	
 	public Long getEvent_right_id() {
 		return event_right_id;
 	}
@@ -100,6 +106,24 @@ public class FF0000Model extends FFBaseModel{
 	}
 	public void setCurrent_price(Long current_price) {
 		this.current_price = current_price;
+	}
+	public String getEvents() {
+		return events;
+	}
+	public void setEvents(String events) {
+		this.events = events;
+	}
+	public String getStart() {
+		return start;
+	}
+	public void setStart(String start) {
+		this.start = start;
+	}
+	public String getEnd() {
+		return end;
+	}
+	public void setEnd(String end) {
+		this.end = end;
 	}
     
     

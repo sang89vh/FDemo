@@ -64,7 +64,7 @@ public class FFDataFeed {
 			while (ze != null) {
 				String fileName = ze.getName();
 				File newFile = new File(destDir + File.separator + fileName);
-				System.out.println("Unzipping to " + newFile.getAbsolutePath());
+				logger.debug("Unzipping to " + newFile.getAbsolutePath());
 				// create directories for sub directories in zip
 				new File(newFile.getParent()).mkdirs();
 				FileOutputStream fos = new FileOutputStream(newFile);
@@ -103,6 +103,13 @@ public class FFDataFeed {
 				re.setSymbol(symbol);
 
 				String eventType = tds.get(1).text();
+				if("Cổ tức bằng tiền".equalsIgnoreCase(eventType.trim())){
+					eventType = "CASH_DIVIDEND";
+				}else if("Cổ tức bằng cổ phiếu".equalsIgnoreCase(eventType.trim())){
+					eventType = "STOCK_DIVIDEND";
+				}else{
+					eventType = "OTHER";
+				}
 				re.setEvent_type(eventType);
 
 				// ngay giao dich khong huong quyen
