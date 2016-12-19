@@ -33,13 +33,18 @@ public class FF0002ServiceImpl implements IFF0002Service {
 	}
 
 	@Transactional
-	public void insertHistoricalPriceBVS(String pathFile,String exchange) throws SQLException {
+	public void insertHistoricalPriceBVS(String pathFile,String exchange){
 		try {
 			List<FF0002Model> data = ReadDailyPriceExcel.readDailyPrice(pathFile);
 			
 			for (FF0002Model prm : data) {
 				prm.setMarket(exchange);
-				ff0002Dao.insertHistoricalPrice(prm);
+				try {
+					ff0002Dao.insertHistoricalPrice(prm);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} catch (IOException e) {
 			logger.error(e.getMessage(),e);
@@ -48,13 +53,18 @@ public class FF0002ServiceImpl implements IFF0002Service {
 	}
 	
 	@Transactional
-	public void insertHistoricalPriceCafeF(String pathFile,String exchange) throws SQLException {
+	public void insertHistoricalPriceCafeF(String pathFile,String exchange){
 		try {
 			List<FF0002Model> data = ReadDailyPriceCSV.readDailyPrice(pathFile);
 			
 			for (FF0002Model prm : data) {
 				prm.setMarket(exchange);
-				ff0002Dao.insertHistoricalPrice(prm);
+				try {
+					ff0002Dao.insertHistoricalPrice(prm);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} catch (IOException e) {
 			logger.error(e.getMessage(),e);

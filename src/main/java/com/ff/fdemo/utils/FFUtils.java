@@ -94,6 +94,20 @@ public class FFUtils {
 		}
 
 	}
+	/**
+	 * 
+	 * @param str_right_date 2016-09-26
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date convertYYYY_MM_DDToDate(String str_right_date) throws ParseException {
+		if (StringUtils.isEmpty(str_right_date)) {
+			return null;
+		} else {
+			return YYYY_MM_DD_DATE_FORMAT.parse(str_right_date);
+		}
+		
+	}
 
 	public static String getCurrentDateYYYYMMDD() {
 		Calendar cl = Calendar.getInstance();

@@ -31,16 +31,15 @@ public class FFDataFeed {
 	 *            ex:2016-12-02
 	 * @throws IOException
 	 */
-	public static String downloadEODBVS(String strDate) throws IOException {
+	public static String downloadEODBVS(String symbol) throws IOException {
 		logger.debug("Start downloadEOD");
 
-		String urlEOD = FFConfig.DOWNLOAD_EOD_BVS_URL
-				+ strDate + "&toDate=" + strDate;
+		String urlEOD = FFConfig.DOWNLOAD_EOD_BVS_URL.replace("{0}", symbol);
 		URL url = new URL(urlEOD);
-		String zipFilePath = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate + ".zip";
-		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + strDate;
+		String zipFilePath = new String(FFConfig.DOWNLOAD_EOD_PATH + File.separator + symbol + ".zip");
+		System.out.println(zipFilePath);
+		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + symbol;
 		File file = new File(zipFilePath);
-
 		FileUtils.copyURLToFile(url, file);
 		unzip(zipFilePath, destDir);
 		logger.debug("End downloadEOD");
@@ -106,7 +105,8 @@ public class FFDataFeed {
 	
 
 	public static List<FF0000Model> readRightEvent(Integer page,String symbol) throws IOException {
-		Document doc = Jsoup.connect(FFConfig.DOWNLOAD_RIGHTEVENT_URL.replace("{0}", page.toString()).replace("{1}", symbol)).get();
+		String url = FFConfig.DOWNLOAD_RIGHTEVENT_URL.replace("{0}", page.toString()).replace("{1}", symbol);
+		Document doc = Jsoup.connect(url).get();
 		Elements rightEvents = doc.body().select(".box_lichsukien");
 		List<FF0000Model> data = new ArrayList<FF0000Model>();
 		if (rightEvents != null && rightEvents.size() > 0) {

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FFConfig implements FFCommCode {
+	
 	public static String DOWNLOAD_EOD_BVS_URL;
 
 	@Value("${download.eod.bvs.url}")

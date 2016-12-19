@@ -38,6 +38,11 @@ public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
 		List<E> data = getSqlSession().selectList(mNamespace + "." + name, prm);
 		return data;
 	}
+	public <E> List<E> selectList(String name)
+			throws SQLException {
+		List<E> data = getSqlSession().selectList(mNamespace + "." + name);
+		return data;
+	}
 
 	public Object selectOne(String name, FFBaseModel parameter)
 			throws SQLException {

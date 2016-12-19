@@ -2,14 +2,11 @@ package com.ff.fdemo.scheduler;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ff.fdemo.model.FF0000Model;
 import com.ff.fdemo.service.IFF0000Service;
 import com.ff.fdemo.service.IFF0002Service;
 import com.ff.fdemo.utils.FFDataFeed;
@@ -50,8 +47,6 @@ public class FFRunTask {
 			
 
 		} catch (IOException e) {
-			logger.error(e.getMessage(), e);
-		} catch (SQLException e) {
 			logger.error(e.getMessage(), e);
 		}
 

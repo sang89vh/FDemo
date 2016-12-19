@@ -19,7 +19,8 @@ import com.ff.fdemo.utils.FFDataFeed;
 
 @Service("FF0000ServiceImpl")
 public class FF0000ServiceImpl implements IFF0000Service {
-	private static final Logger logger = LogManager.getLogger(FF0000DaoImpl.class);
+	private static final Logger logger = LogManager
+			.getLogger(FF0000DaoImpl.class);
 	@Autowired
 	public IFF0000Dao ff0000Dao;
 
@@ -30,25 +31,28 @@ public class FF0000ServiceImpl implements IFF0000Service {
 	}
 
 	@Transactional
-	public void insertRightEvent(Integer page,String symbol) throws SQLException {
+	public void insertRightEvent(Integer page, String symbol) {
 		try {
-			
-			List<FF0000Model> data = FFDataFeed.readRightEvent(page,symbol);
-			
+
+			List<FF0000Model> data = FFDataFeed.readRightEvent(page, symbol);
+
 			for (FF0000Model prm : data) {
-				
-				//check if this event existing on db then do nothing else insert to db
-				//check existing on db
-				Boolean isntExist = ff0000Dao.checkRightEvent(prm);
-				if(isntExist){
-					//doesn't existing then insert to db
-					ff0000Dao.insertRightEvent(prm);
+				try {
+					// check if this event existing on db then do nothing else
+					// insert to db
+					// check existing on db
+					Boolean isntExist = ff0000Dao.checkRightEvent(prm);
+					if (isntExist) {
+						// doesn't existing then insert to db
+						ff0000Dao.insertRightEvent(prm);
+					}
+				} catch (SQLException e) {
+					logger.error(e.getMessage(), e);
 				}
-				
-			
+
 			}
 		} catch (IOException e) {
-			logger.error(e.getMessage(),e);
+			logger.error(e.getMessage(), e);
 		}
 
 	}
