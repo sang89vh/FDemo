@@ -15,6 +15,8 @@
 			<li ><a href="../ff0001/index">Investment</a></li>
 			<li><a href="../ff0002/index">Historical Price</a></li>
 			<li><a href="../ff0003/index">Knowledge</a></li>
+			<li><a class="fffancybox fancybox.iframe"  href="https://banggia.vndirect.com.vn/chung-khoan/#khop-lenh/hose">Trading board</a></li>
+			
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

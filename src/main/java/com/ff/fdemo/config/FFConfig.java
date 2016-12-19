@@ -6,6 +6,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class FFConfig implements FFCommCode {
 	
+	public static String COMPANY_PROFILE_URL;
+
+	@Value("${iframe.company.url}")
+	public void setCmpanyProfileUrl(String url) {
+		COMPANY_PROFILE_URL = url;
+	}
+	
 	public static String DOWNLOAD_EOD_BVS_URL;
 
 	@Value("${download.eod.bvs.url}")

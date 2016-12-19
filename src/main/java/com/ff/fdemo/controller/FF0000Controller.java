@@ -52,10 +52,11 @@ public class FF0000Controller extends FFBaseController {
 	public ModelAndView rightEvent(ModelAndView mav, HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute FF0002Model prm
 			) throws SQLException {
-		
+		//ff0004Service.insertCompanies();
+		/*
 		List<FF000402Model> companies = ff0004Service.getAllCompanies();
 		for (FF000402Model ff000402Model : companies) {
-			String symbol = ff000402Model.getSymbol();
+			String symbol = ff000402Model.getSymbol().trim();
 			for(int i=1;i<10;i++){
 				ff0000Service.insertRightEvent(i,symbol);
 				
@@ -71,7 +72,8 @@ public class FF0000Controller extends FFBaseController {
 			}
 		}
 		
-		//ff0004Service.insertCompanies();
+		
+		*/
 		
 		/*
 		for(int i=1;i<1104;i++){

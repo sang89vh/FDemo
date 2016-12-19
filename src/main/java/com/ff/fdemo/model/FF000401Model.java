@@ -3,6 +3,8 @@ package com.ff.fdemo.model;
 import java.text.ParseException;
 import java.util.Date;
 
+import org.springframework.util.StringUtils;
+
 import com.ff.fdemo.utils.FFUtils;
 
 public class FF000401Model extends FFBaseModel{
@@ -102,7 +104,7 @@ public class FF000401Model extends FFBaseModel{
 		return symbol;
 	}
 	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+		this.symbol = symbol.trim();
 	}
 	public Date getListed_date() {
 		return listed_date;

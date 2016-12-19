@@ -36,12 +36,15 @@ public class FFDataFeed {
 
 		String urlEOD = FFConfig.DOWNLOAD_EOD_BVS_URL.replace("{0}", symbol);
 		URL url = new URL(urlEOD);
-		String zipFilePath = new String(FFConfig.DOWNLOAD_EOD_PATH + File.separator + symbol + ".zip");
-		System.out.println(zipFilePath);
+		StringBuffer zipFilePath = new StringBuffer(FFConfig.DOWNLOAD_EOD_PATH); 
+		zipFilePath.append(File.separator);
+		zipFilePath.append(symbol);
+		zipFilePath.append(".zip");
+		System.out.println(">>"+symbol+".zip"+"<<");
 		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + symbol;
-		File file = new File(zipFilePath);
+		File file = new File(zipFilePath.toString());
 		FileUtils.copyURLToFile(url, file);
-		unzip(zipFilePath, destDir);
+		unzip(zipFilePath.toString(), destDir);
 		logger.debug("End downloadEOD");
 		return destDir;
 
@@ -115,7 +118,9 @@ public class FFDataFeed {
 			Elements trs = rightEvent.getElementsByTag("tr");
 			trs.remove(0);
 			String stock = new String("Cổ tức bằng cổ phiếu ");
+			String stock2 = new String("Cổ phiếu thưởng ");
 			String cash = new String("Cổ tức bằng tiền ");
+			String meeting = new String("Họp cổ đông ");
 			for (Element tr : trs) {
 				Elements tds = tr.getElementsByTag("td");
 				FF0000Model re = new FF0000Model();
@@ -126,8 +131,10 @@ public class FFDataFeed {
 				eventType = eventType.trim();
 				if(cash.equals(eventType)){
 					eventType = "CASH";
-				}else if(stock.equalsIgnoreCase(eventType)){
+				}else if(stock.equalsIgnoreCase(eventType) ||stock2.equalsIgnoreCase(eventType)){
 					eventType = "STOCK";
+				}else if(stock.equalsIgnoreCase(meeting)){
+					eventType = "MEETING";
 				}
 				re.setEvent_type(eventType);
 

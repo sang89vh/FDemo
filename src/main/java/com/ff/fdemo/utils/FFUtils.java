@@ -133,4 +133,9 @@ public class FFUtils {
 	public static String convertDateToStrSlashDDMMYYY(Date myDate) {
 		return DD_MM_YYYY_DATE_FORMAT.format(myDate);
 	}
+	
+	public static String convertDateToStrYYYYMMDD(Date myDate) {
+		return YYYYMMDD_DATE_FORMAT.format(myDate);
+	}
+	
 }

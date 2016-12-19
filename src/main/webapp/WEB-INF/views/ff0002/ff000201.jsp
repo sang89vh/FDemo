@@ -57,6 +57,7 @@ var getEvents = function(){
 	
 	
 	$.post( ctx + '/ff0000/data01',$("#form-search").serializeObject(), function( data ) {
+		  chartStockEvents = [];
 		  $.each( data, function( key, val ) {
 			  
 			  chartStockEvents.push({
@@ -76,6 +77,7 @@ var getEvents = function(){
 }
 var getDataAndDrawchart = function(){
 	$.post( ctx + "/ff0002/data01",$("#form-search").serializeObject(), function( data ) {
+		 chartData=[];
 		  $.each( data, function( key, val ) {
 			  
 			  chartData.push({
@@ -239,11 +241,11 @@ var drawChart = function(){
 		dataSets: [{
 			color: "#b0de09",
 			fieldMappings: [{
-				fromField: "close",
-				toField: "close"
-			}, {
 				fromField: "volume",
 				toField: "volume"
+			}, {
+				fromField: "close",
+				toField: "close"
 			}],
 			dataProvider: chartData,
 			categoryField: "date",
@@ -308,7 +310,11 @@ var drawChart = function(){
 		}
 	});
 }
+var companyProfileUrl = '${COMPANY_PROFILE_URL}';
 var search = function(){
+	var symbol = $("#symbol").val();
+	var tmpCompanyProfileUrl = companyProfileUrl.replace("{0}", symbol);
+	$("#companyProfile").attr("href",tmpCompanyProfileUrl);
 	getDataAndDrawchart();
 }
 
@@ -335,7 +341,7 @@ $(document).ready(function(){
 	  <tr>
 	  	<td>
 	  		<div class="form-group">
-			    <input name = "symbol" type="text" class="form-control" placeholder="Symbol" style="text-transform:uppercase" value="MSN">
+			    <input id="symbol" name = "symbol" type="text" class="form-control" placeholder="Symbol" style="text-transform:uppercase" value="MSN">
 			    <input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 			 </div>
@@ -349,6 +355,7 @@ $(document).ready(function(){
 	</table>
 </div>
 </form>
+<a id="companyProfile" class="fffancybox fancybox.iframe" href="${COMPANY_PROFILE_URL}">Profile</a>
 <div>
 
   <!-- Nav tabs -->

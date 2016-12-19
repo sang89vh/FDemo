@@ -84,7 +84,7 @@
 			<if test="event_type !=null and event_type !='' ">
 				and event_type = #{event_type}
 			</if>
-			
+		order by right_date	
 			
 				
 	</select>
