@@ -104,8 +104,8 @@
 	    </td>
 	    <td>
 	    	<div>
-			    <label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="CASH_DIVIDEND" checked="checked"> Cash Dividends</label>
-			    <label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="STOCK_DIVIDEND" checked="checked"> Stock Dividends</label>
+			    <label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="CASH" checked="checked"> Cash Dividends</label>
+			    <label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="STOCK" checked="checked"> Stock Dividends</label>
 			 	<label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="OTHER"> Other</label>
 			 </div>
 		</td>

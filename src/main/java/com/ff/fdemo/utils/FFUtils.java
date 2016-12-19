@@ -115,4 +115,8 @@ public class FFUtils {
 		String strCurrentDate = DDMMYYYY_DOT_DATE_FORMAT.format(currentDate);
 		return strCurrentDate;
 	}
+
+	public static String convertDateToStrSlashDDMMYYY(Date myDate) {
+		return DD_MM_YYYY_DATE_FORMAT.format(myDate);
+	}
 }

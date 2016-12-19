@@ -105,8 +105,8 @@ public class FFDataFeed {
 	
 	
 
-	public static List<FF0000Model> readRightEvent() throws IOException {
-		Document doc = Jsoup.connect(FFConfig.DOWNLOAD_RIGHTEVENT_URL).get();
+	public static List<FF0000Model> readRightEvent(Integer page,String symbol) throws IOException {
+		Document doc = Jsoup.connect(FFConfig.DOWNLOAD_RIGHTEVENT_URL.replace("{0}", page.toString()).replace("{1}", symbol)).get();
 		Elements rightEvents = doc.body().select(".box_lichsukien");
 		List<FF0000Model> data = new ArrayList<FF0000Model>();
 		if (rightEvents != null && rightEvents.size() > 0) {
@@ -114,19 +114,20 @@ public class FFDataFeed {
 			Element rightEvent = rightEvents.get(0);
 			Elements trs = rightEvent.getElementsByTag("tr");
 			trs.remove(0);
+			String stock = new String("Cổ tức bằng cổ phiếu ");
+			String cash = new String("Cổ tức bằng tiền ");
 			for (Element tr : trs) {
 				Elements tds = tr.getElementsByTag("td");
 				FF0000Model re = new FF0000Model();
-				String symbol = tds.get(0).text();
-				re.setSymbol(symbol);
+				String symbolEvent = tds.get(0).text();
+				re.setSymbol(symbolEvent);
 
 				String eventType = tds.get(1).text();
-				if("Cổ tức bằng tiền".equalsIgnoreCase(eventType.trim())){
-					eventType = "CASH_DIVIDEND";
-				}else if("Cổ tức bằng cổ phiếu".equalsIgnoreCase(eventType.trim())){
-					eventType = "STOCK_DIVIDEND";
-				}else{
-					eventType = "OTHER";
+				eventType = eventType.trim();
+				if(cash.equals(eventType)){
+					eventType = "CASH";
+				}else if(stock.equalsIgnoreCase(eventType)){
+					eventType = "STOCK";
 				}
 				re.setEvent_type(eventType);
 

@@ -10,5 +10,5 @@ public interface IFF0000Service {
 	public List<FF000001Model> searchRightEventBySymbol(FF0000Model prm)
 			throws SQLException ;
 	
-	public void insertRightEvent() throws SQLException;
+	public void insertRightEvent(Integer page,String symbol) throws SQLException;
 }

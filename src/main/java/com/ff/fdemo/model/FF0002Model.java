@@ -2,11 +2,14 @@ package com.ff.fdemo.model;
 
 import java.util.Date;
 
+import com.ff.fdemo.utils.FFUtils;
+
 public class FF0002Model extends FFBaseModel {
 	private static final long serialVersionUID = 2461837578780051992L;
 	private Long his_price_id;
 	private String symbol;
 	private Date trading_date;
+	private String trading_date_label;
 	private Long open_price;
 	private Long high_price;
 	private Long low_price;
@@ -30,6 +33,13 @@ public class FF0002Model extends FFBaseModel {
 	}
 	public void setTrading_date(Date trading_date) {
 		this.trading_date = trading_date;
+	}
+	
+	public String getTrading_date_label() {
+		return FFUtils.convertDateToStrSlashDDMMYYY(trading_date);
+	}
+	public void setTrading_date_label(String trading_date_label) {
+		this.trading_date_label = trading_date_label;
 	}
 	public Long getOpen_price() {
 		return open_price;

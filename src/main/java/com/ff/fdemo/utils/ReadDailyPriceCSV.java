@@ -34,19 +34,19 @@ public class ReadDailyPriceCSV {
 
 			ff0002Model.setTrading_date(FFUtils.convertYYYYMMDDToDate(record.get(1)));
 
-			dbval = Double.parseDouble(record.get(2))*100;
+			dbval = Double.parseDouble(record.get(2))*1000;
 			ff0002Model.setOpen_price(dbval.longValue());
 
-			dbval = Double.parseDouble(record.get(3))*100;
+			dbval = Double.parseDouble(record.get(3))*1000;
 			ff0002Model.setHigh_price(dbval.longValue());
 
-			dbval = Double.parseDouble(record.get(4))*100;
+			dbval = Double.parseDouble(record.get(4))*1000;
 			ff0002Model.setLow_price(dbval.longValue());
 
-			dbval = Double.parseDouble(record.get(5))*100;
+			dbval = Double.parseDouble(record.get(5))*1000;
 			ff0002Model.setClose_price(dbval.longValue());
 
-			dbval = Double.parseDouble(record.get(6))*100;
+			dbval = Double.parseDouble(record.get(6))*1000;
 			ff0002Model.setVolume(dbval.longValue());
 
 			list.add(ff0002Model);

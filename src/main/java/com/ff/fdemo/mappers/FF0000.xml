@@ -74,7 +74,8 @@
 				symbol as resourceId,
 				to_char(right_date,'YYYY-MM-DD') as start,
 <!-- 				to_char(action_date,'YYYY-MM-DD') as end, -->
-				symbol||':'||content title
+				symbol||':'||content title,
+				event_type
 		from sto_event_right
 		where right_date is not null
 			<if test="symbol !=null and symbol !='' ">

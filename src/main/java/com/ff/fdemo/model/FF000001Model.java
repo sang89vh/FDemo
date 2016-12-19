@@ -13,6 +13,7 @@ public class FF000001Model extends FFBaseModel {
 	// "2016-09-07T22:00:00";
 	private String end;
 	private String title;
+	private String event_type;
 	public String getId() {
 		return id;
 	}
@@ -46,5 +47,13 @@ public class FF000001Model extends FFBaseModel {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getEvent_type() {
+		return event_type;
+	}
+	public void setEvent_type(String event_type) {
+		this.event_type = event_type;
+	}
+	
+	
 
 }

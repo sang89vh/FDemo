@@ -14,6 +14,7 @@
 			<li><a href="../ff0000/index">Right Event</a></li>
 			<li ><a href="../ff0001/index">Investment</a></li>
 			<li><a href="../ff0002/index">Historical Price</a></li>
+			<li><a href="../ff0003/index">Knowledge</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">

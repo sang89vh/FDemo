@@ -30,9 +30,10 @@ public class FF0000ServiceImpl implements IFF0000Service {
 	}
 
 	@Transactional
-	public void insertRightEvent() throws SQLException {
+	public void insertRightEvent(Integer page,String symbol) throws SQLException {
 		try {
-			List<FF0000Model> data = FFDataFeed.readRightEvent();
+			
+			List<FF0000Model> data = FFDataFeed.readRightEvent(page,symbol);
 			
 			for (FF0000Model prm : data) {
 				
@@ -44,6 +45,7 @@ public class FF0000ServiceImpl implements IFF0000Service {
 					ff0000Dao.insertRightEvent(prm);
 				}
 				
+			
 			}
 		} catch (IOException e) {
 			logger.error(e.getMessage(),e);

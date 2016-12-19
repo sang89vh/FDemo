@@ -46,7 +46,7 @@ public class FFRunTask {
 			ff0002Service.insertHistoricalPriceCafeF(destDir + File.separator + "CafeF.HNX."+strDateFile+".csv","HNX");
 			ff0002Service.insertHistoricalPriceCafeF(destDir + File.separator + "CafeF.UPCOM."+strDateFile+".csv","UPCOM");
 			
-			ff0000Service.insertRightEvent();
+			ff0000Service.insertRightEvent(1,"");
 			
 
 		} catch (IOException e) {
