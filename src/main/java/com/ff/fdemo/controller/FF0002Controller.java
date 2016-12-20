@@ -7,12 +7,13 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,11 +36,18 @@ public class FF0002Controller extends FFBaseController {
 	private IFF0002Service ff0002Service;
 	
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView login(ModelAndView mav, @ModelAttribute FF0002Model prm)
-			throws SQLException {
-		mav.setViewName("ff0002/ff000201");
-
+	@RequestMapping(value = "/index",params = {"path","symbol"}, method = RequestMethod.GET)
+	public ModelAndView login(ModelAndView mav, @ModelAttribute FF0002Model prm,
+			@RequestParam(value = "path") String path,
+			@RequestParam(value = "symbol") String symbol
+			) throws SQLException {
+		if(StringUtils.isEmpty(path)){
+			mav.setViewName("ff0002/ff000201");
+		}else{
+			mav.setViewName(path+":ff0002/ff000201");
+		}
+		mav.addObject("symbol", symbol);
+		
 		return mav;
 	}
 

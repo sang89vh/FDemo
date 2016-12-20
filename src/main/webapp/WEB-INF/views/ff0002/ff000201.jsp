@@ -26,7 +26,7 @@ var drawGrid = function() {
                     url: ctx + "/ff0002/data01",
                     dataType: "json",
                     method:'post',
-                    data:$("#form-search").serializeObject()
+                    data:$("#ff000201-form-search").serializeObject()
                 }).done(function(response) {
                     d.resolve(response);
                 });
@@ -56,7 +56,7 @@ var chartStockEvents = [];
 var getEvents = function(){
 	
 	
-	$.post( ctx + '/ff0000/data01',$("#form-search").serializeObject(), function( data ) {
+	$.post( ctx + '/ff0000/data01',$("#ff000201-form-search").serializeObject(), function( data ) {
 		  chartStockEvents = [];
 		  $.each( data, function( key, val ) {
 			  
@@ -76,7 +76,7 @@ var getEvents = function(){
 	}, "json");
 }
 var getDataAndDrawchart = function(){
-	$.post( ctx + "/ff0002/data01",$("#form-search").serializeObject(), function( data ) {
+	$.post( ctx + "/ff0002/data01",$("#ff000201-form-search").serializeObject(), function( data ) {
 		 chartData=[];
 		  $.each( data, function( key, val ) {
 			  
@@ -335,13 +335,13 @@ $(document).ready(function(){
 
 </script>
 
-<form id="form-search">
+<form id="ff000201-form-search">
 <div class="table-responsive form-group">
 	<table class="table">
 	  <tr>
 	  	<td>
 	  		<div class="form-group">
-			    <input id="symbol" name = "symbol" type="text" class="form-control" placeholder="Symbol" style="text-transform:uppercase" value="MSN">
+			    <input id="symbol" name = "symbol" type="text" class="form-control" placeholder="Symbol" style="text-transform:uppercase" value='${symbol}'>
 			    <input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 			 </div>
@@ -355,7 +355,7 @@ $(document).ready(function(){
 	</table>
 </div>
 </form>
-<a id="companyProfile" class="fffancybox fancybox.iframe" href="${COMPANY_PROFILE_URL}">Profile</a>
+<a id="companyProfile" class="fffancybox fancybox.iframe" href="${COMPANY_PROFILE_URL.replace('{0}',symbol)}">Profile</a>
 <div>
 
   <!-- Nav tabs -->

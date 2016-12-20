@@ -5,11 +5,11 @@
 <tiles-definitions>
 	<definition name="dialog:*/*" template="/WEB-INF/views/layout/emptyLayout.jsp">
 		<put-attribute name="title" value="FDemo" />
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
 	<definition name="tab:*/*" template="/WEB-INF/views/layout/emptyLayout.jsp">
 		<put-attribute name="title" value="FDemo" />
-		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
 	<definition name="ff0001/*" template="/WEB-INF/views/layout/authLayout.jsp">
 		<put-attribute name="body" value="/WEB-INF/views/ff0001/{1}.jsp" />

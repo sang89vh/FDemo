@@ -26,7 +26,7 @@
 
 		        console.log(calEvent.resourceId);
 				var $historicalPrice = $("#historicalPrice");
-				$historicalPrice.attr("href",ctx + "/ff0002/index?symbol="+calEvent.resourceId)
+				$historicalPrice.attr("href",ctx + "/ff0002/index?path=dialog&symbol="+calEvent.resourceId)
 		        $historicalPrice.click();
 				// change the border color just for fun
 		        $(this).css('border-color', 'red');
@@ -51,13 +51,6 @@
 <form id="form-search">
 <div class="table-responsive form-group">
 	<table class="table">
-	  <tr>
-	  	<td colspan="1">
-	  		<div class="form-group">
-			    <button type="button" class="btn btn-primary" onclick="search()">Search</button>
-			 </div>
-	  	</td>
-	  </tr>	
 	  <tr>
 	  	<td>
 	  		<div class="form-group">
@@ -109,6 +102,11 @@
 			 	<label style="margin-right: 5px;margin-left: 10px"><input name="events" type="checkbox" value="OTHER"> Other</label>
 			 </div>
 		</td>
+		<td >
+	  		<div class="form-group">
+			    <button type="button" class="btn btn-primary" onclick="search()">Search</button>
+			 </div>
+	  	</td>
 	  </tr>
 	</table>
 </div>
