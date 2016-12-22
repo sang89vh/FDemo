@@ -3,7 +3,6 @@
 <mapper namespace="ff0000" >
 	<insert id="insertRightEvent" parameterType="com.ff.fdemo.model.FF0000Model">
 		INSERT INTO sto_event_right(
-					event_right_id, 
 					
 					<if test="exchange !=null and exchange !='' "> 
 						exchange, 
@@ -32,7 +31,6 @@
 					symbol
 				)
 			VALUES (
-					nextval('sto_event_right_event_right_id_seq'),
 					
 					<if test="exchange !=null and exchange !='' "> 
 						#{exchange}, 
@@ -66,15 +64,17 @@
 			from sto_event_right
 			where symbol = #{symbol}
 				and event_type = #{event_type}
-				and to_char(right_date, 'yyyy-mm-dd hh:mm:ss') = #{right_date}				
+				and DATE_FORMAT(right_date, '%Y-%m-%d %H:%i:%s') = #{right_date}		
+<!-- 				and to_char(right_date, 'yyyy-mm-dd hh:mm:ss') = #{right_date}		 -->
 	
 	</select>
 	<select id="searchRightEventBySymbol" parameterType="com.ff.fdemo.model.FF0000Model" resultType="com.ff.fdemo.model.FF000001Model">
 		select  event_right_id as id,
 				symbol as resourceId,
-				to_char(right_date,'YYYY-MM-DD') as start,
+				DATE_FORMAT(right_date,'%Y-%m-%d') as start,
 <!-- 				to_char(action_date,'YYYY-MM-DD') as end, -->
-				symbol||':'||content title,
+				concat(symbol,':',content) title,
+<!-- 				symbol||':'||content title, -->
 				event_type
 		from sto_event_right
 		where right_date is not null

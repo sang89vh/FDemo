@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ff.fdemo.model.FF000401Model;
 
 public class FFReadJsonFile {
-	private static String path = "/Users/jack/Documents/1_MMO/FDemo/src/main/resources/companies.json";
+	private static String path = "C:\\Users\\Admin\\OneDrive\\FDemo\\src\\main\\resources\\companies.json";
 
 	public static List<FF000401Model> readJsonFile() throws JsonParseException,
 			JsonMappingException, IOException {

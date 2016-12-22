@@ -3,7 +3,6 @@
 <mapper namespace="ff0004" >
 	<insert id="insertCompany" parameterType="com.ff.fdemo.model.FF000401Model" useGeneratedKeys="true" keyProperty="company_id" keyColumn="company_id">
 		INSERT INTO sto_company(
-		            company_id, 
 		            name, 
 		            listed_date,
 		            domain,
@@ -12,9 +11,9 @@
 		            
             )
     VALUES (
-    				nextval('sto_company_company_id_seq'), 
     				#{companyName}, 
-    				to_date(#{listedDate}, 'yyyy-mm-dd'), 
+    				STR_TO_DATE(#{listedDate}, '%Y-%m-%d'), 
+<!--     				to_date(#{listedDate}, 'yyyy-mm-dd'),  -->
     				#{industryName},  
     				#{symbol},  
     				#{status}

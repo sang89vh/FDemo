@@ -40,7 +40,7 @@ public class FFDataFeed {
 		zipFilePath.append(File.separator);
 		zipFilePath.append(symbol);
 		zipFilePath.append(".zip");
-		System.out.println(">>"+symbol+".zip"+"<<");
+		//System.out.println(">>"+symbol+".zip"+"<<");
 		String destDir = FFConfig.DOWNLOAD_EOD_PATH + File.separator + symbol;
 		File file = new File(zipFilePath.toString());
 		FileUtils.copyURLToFile(url, file);
