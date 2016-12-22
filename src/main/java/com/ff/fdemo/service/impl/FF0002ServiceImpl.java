@@ -42,8 +42,7 @@ public class FF0002ServiceImpl implements IFF0002Service {
 				try {
 					ff0002Dao.insertHistoricalPrice(prm);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					logger.error(e.getMessage(), e);
 				}
 			}
 		} catch (IOException e) {

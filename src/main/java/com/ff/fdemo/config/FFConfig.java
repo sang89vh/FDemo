@@ -33,6 +33,13 @@ public class FFConfig implements FFCommCode {
 	public void setDownloadEODPath(String path) {
 		DOWNLOAD_EOD_PATH = path;
 	}
+	
+	public static String DOWNLOAD_REPORT_PATH;
+	
+	@Value("${download.report.path}")
+	public void setDownloadReportPath(String path) {
+		DOWNLOAD_REPORT_PATH = path;
+	}
 
 	public static String DOWNLOAD_RIGHTEVENT_URL;
 

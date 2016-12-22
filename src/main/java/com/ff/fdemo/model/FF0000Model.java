@@ -58,7 +58,7 @@ public class FF0000Model extends FFBaseModel{
 	}
 	public void setRight_date(String str_right_date) {
 		try {
-			this.right_date = FFUtils.convertStringToDate(str_right_date);
+			this.right_date = FFUtils.convertDDMMYYToDate(str_right_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}
@@ -71,7 +71,7 @@ public class FF0000Model extends FFBaseModel{
 	}
 	public void setRegister_date(String register_date) {
 		try {
-			this.register_date = FFUtils.convertStringToDate(register_date);
+			this.register_date = FFUtils.convertDDMMYYToDate(register_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}
@@ -84,7 +84,7 @@ public class FF0000Model extends FFBaseModel{
 	}
 	public void setAction_date(String action_date) {
 		try {
-			this.action_date = FFUtils.convertStringToDate(action_date);
+			this.action_date = FFUtils.convertDDMMYYToDate(action_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}

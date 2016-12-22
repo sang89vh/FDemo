@@ -76,7 +76,7 @@ public class FFUtils {
 
 	}
 
-	public static Date convertStringToDate(String str_right_date) throws ParseException {
+	public static Date convertDDMMYYToDate(String str_right_date) throws ParseException {
 		if (StringUtils.isEmpty(str_right_date)) {
 			return null;
 		} else if (str_right_date.contains("/")) {

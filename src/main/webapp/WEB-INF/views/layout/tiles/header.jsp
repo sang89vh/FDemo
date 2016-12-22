@@ -11,43 +11,43 @@
 <script type="text/javascript"> 
 	var ctx = "<%=request.getContextPath()%>";
 </script>
-<link  href="${ctxPath}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
-<link  href="${ctxPath}/resources/css/sweetalert.css" rel="stylesheet" type="text/css" />
-<link  href="${ctxPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link  href="${ctxPath}/resources/css/pace.css" rel="stylesheet" type="text/css" />
-<link  href="${ctxPath}/resources/css/sweetalert.css" rel="stylesheet" type="text/css" />
-<link  href="${ctxPath}/resources/css/flat-ui.min.css" rel="stylesheet" type="text/css" />
-<link   href="${ctxPath}/resources/css/jsgrid.min.css" rel="stylesheet" type="text/css"/>
-<link   href="${ctxPath}/resources/css/jsgrid-theme.min.css" rel="stylesheet" type="text/css"/>
-<link   href="${ctxPath}/resources/css/amchart.css" rel="stylesheet" type="text/css"/>
-<link   href="${ctxPath}/resources/css/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-<link   href="${ctxPath}/resources/css/fullcalendar.print.css" rel='stylesheet' media='print' type="text/css"/>
+<link  href="${ctx}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/sweetalert.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/pace.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/sweetalert.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/flat-ui.min.css" rel="stylesheet" type="text/css" />
+<link   href="${ctx}/resources/css/jsgrid.min.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctx}/resources/css/jsgrid-theme.min.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctx}/resources/css/amchart.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctx}/resources/css/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+<link   href="${ctx}/resources/css/fullcalendar.print.css" rel='stylesheet' media='print' type="text/css"/>
 <!-- Add fancyBox -->
-<link   href="${ctxPath}/resources/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+<link   href="${ctx}/resources/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
 <!-- Optionally add helpers - button, thumbnail and/or media -->
-<link   href="${ctxPath}/resources/css/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css" />
-<link   href="${ctxPath}/resources/css/jquery.fancybox-thumbs.css" rel="stylesheet" type="text/css" />
+<link   href="${ctx}/resources/css/jquery.fancybox-buttons.css" rel="stylesheet" type="text/css" />
+<link   href="${ctx}/resources/css/jquery.fancybox-thumbs.css" rel="stylesheet" type="text/css" />
 
-<link  href="${ctxPath}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
+<link  href="${ctx}/resources/css/fdemo.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/tether.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/pace.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/flat-ui.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/sweetalert.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/jsgrid.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/moment.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/fullcalendar.min.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/amcharts.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/serial.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/amstock.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/tether.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/pace.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/flat-ui.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jsgrid.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/moment.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/amcharts.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/serial.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/amstock.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/bootstrap-notify.min.js"></script>
 <!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery.mousewheel-3.0.6.pack.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-buttons.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-media.js"></script>
-<script type="text/javascript" src="${ctxPath}/resources/js/jquery.fancybox-thumbs.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery.fancybox-buttons.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery.fancybox-media.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/jquery.fancybox-thumbs.js"></script>
 
-<script type="text/javascript" src="${ctxPath}/resources/js/fdemo.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/fdemo.js"></script>
 
