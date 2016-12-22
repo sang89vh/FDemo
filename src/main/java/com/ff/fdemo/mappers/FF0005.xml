@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ff0005" >
+	<insert id="insertTradeLog" parameterType="com.ff.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="trade_log_id" keyColumn="trade_log_id">
+		INSERT INTO sto_trade_log(
+		            trading_code,
+					buy_sell,
+					symbol,
+					volume,
+					value,
+					tax,
+					fee
+		            
+            )
+    VALUES (
+    				#{trading_code},
+					#{buy_sell},
+					#{symbol},
+					#{volume},
+					#{value},
+					#{tax},
+					#{fee}
+            )
+	</insert>
+	
+	
+</mapper>
