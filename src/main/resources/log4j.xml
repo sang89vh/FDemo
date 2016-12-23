@@ -58,7 +58,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
 		<appender-ref ref="file" />
 		<appender-ref ref="scheduler" />

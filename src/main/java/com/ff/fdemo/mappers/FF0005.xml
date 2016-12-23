@@ -4,24 +4,46 @@
 	<insert id="insertTradeLog" parameterType="com.ff.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="trade_log_id" keyColumn="trade_log_id">
 		INSERT INTO sto_trade_log(
 		            trading_code,
-					buy_sell,
+					sell,
 					symbol,
 					volume,
-					value,
+					buy,
 					tax,
 					fee
 		            
             )
     VALUES (
     				#{trading_code},
-					#{buy_sell},
+					#{sell},
 					#{symbol},
 					#{volume},
-					#{value},
+					#{buy},
 					#{tax},
 					#{fee}
             )
 	</insert>
+	<select id="reportBySymbol" resultType="map">
+		select symbol,
+			sum(fee+tax+IFNULL(buy,0)) expenses,
+			sum(IFNULL(sell,0)) income 
+		from sto_trade_log group by symbol 
 	
+	</select>
+	<select id="reportByAll" resultType="map">
+		select 'All' report,
+			sum(fee+tax+IFNULL(buy,0)) expenses,
+			sum(IFNULL(sell,0)) income 
+		from sto_trade_log
+	
+	</select>
+	
+	<select id="reportByGrid" resultType="map">
+		select 
+			sum(fee+tax+IFNULL(buy,0)) expenses,
+			(sum(IFNULL(sell,0)) - sum(fee+tax+IFNULL(buy,0))) income ,
+            (sum(IFNULL(sell,0)) - sum(fee+tax+IFNULL(buy,0)))/sum(fee+tax+IFNULL(buy,0)) ratio
+		from sto_trade_log
+	
+	</select>
 	
 </mapper>

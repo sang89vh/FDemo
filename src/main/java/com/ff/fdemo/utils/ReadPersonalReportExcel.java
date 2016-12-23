@@ -46,10 +46,15 @@ public class ReadPersonalReportExcel {
 			FF000501Model model = new FF000501Model();
 			
 			model.setTrading_code(String.valueOf(row.getCell(1).getNumericCellValue()));
-			model.setBuy_sell(row.getCell(2).getStringCellValue());
+			String bysell = row.getCell(2).getStringCellValue();
+			if("Mua".equalsIgnoreCase(bysell)){
+				model.setBuy(row.getCell(8).getNumericCellValue());
+			}else{
+				model.setSell(row.getCell(8).getNumericCellValue());
+			}
 			model.setSymbol(row.getCell(3).getStringCellValue());
 			model.setVolume(row.getCell(6).getNumericCellValue());
-			model.setValue(row.getCell(8).getNumericCellValue());
+			
 			model.setTax(row.getCell(9).getNumericCellValue());
 			model.setFee(row.getCell(10).getNumericCellValue());
 
@@ -61,24 +66,5 @@ public class ReadPersonalReportExcel {
 
 
 	}
-	public static void main(String[] args) {
-		try {
-			List<FF000501Model> list = ReadPersonalReportExcel.readTradeLog("F:\\ffdata\\report\\LichSuKhopLenh_058C054323_2.xls");
-			for (FF000501Model ff000501Model : list) {
-				System.out.print(ff000501Model.getBuy_sell());System.out.print("-");
-				System.out.print(ff000501Model.getSymbol());System.out.print("-");
-				System.out.print(ff000501Model.getTrading_code());System.out.print("-");
-				System.out.print(ff000501Model.getFee());System.out.print("-");
-				System.out.print(ff000501Model.getTax());System.out.print("-");
-				System.out.print(ff000501Model.getValue());System.out.print("-");
-				System.out.println(ff000501Model.getVolume());
-			}
-			
-		} catch (IOException e) {
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-	}
+	
 }

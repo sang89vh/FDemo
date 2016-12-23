@@ -1,6 +1,8 @@
 package com.ff.fdemo.dao.impl;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,17 @@ public class FF0005DaoImpl extends FFBaseDao implements IFF0005Dao{
 		
 	}
 
+	public List<Map> reportBySymbol() throws SQLException {
+		return selectList("reportBySymbol");
+		
+	}
+
+	public Map reportByAll() throws SQLException {
+		return (Map) selectOne("reportByAll");
+	}
+	public Map reportByGrid() throws SQLException {
+		return (Map) selectOne("reportByGrid");
+	}
 
 	
 }

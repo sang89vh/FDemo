@@ -98,18 +98,21 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/postgresql/postgresql
+		<!-- https://mvnrepository.com/artifact/postgresql/postgresql <dependency> 
+			<groupId>postgresql</groupId> <artifactId>postgresql</artifactId> <version>9.4.1208-jdbc42-atlassian-hosted</version> 
+			</dependency> -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java 
 		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.4.1208-jdbc42-atlassian-hosted</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.5</version>
 		</dependency>
 		-->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.5</version>
+			<version>5.1.40</version>
 		</dependency>
 
 		<dependency>

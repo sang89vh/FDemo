@@ -1,10 +1,8 @@
 package com.ff.fdemo.service.impl;
 
-import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -36,6 +34,17 @@ public class FF0005ServiceImpl implements IFF0005Service {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
+	}
+
+	public List<Map> reportBySymbol() throws SQLException {
+		return ff0005Dao.reportBySymbol();
+	}
+	public Map reportByAll() throws SQLException {
+		return ff0005Dao.reportByAll();
+	}
+
+	public Map reportByGrid() throws SQLException {
+		return ff0005Dao.reportByGrid();
 	}
 
 }

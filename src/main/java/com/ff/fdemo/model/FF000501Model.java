@@ -8,10 +8,10 @@ public class FF000501Model extends FFBaseModel{
 	 */
 	private static final long serialVersionUID = 8639442104533676538L;
 	private String trading_code;
-	private String buy_sell;
 	private String symbol;
 	private Long volume;
-	private Long value;
+	private Long buy;
+	private Long sell;
 	private Long tax;
 	private Long fee;
 	public String getTrading_code() {
@@ -20,12 +20,7 @@ public class FF000501Model extends FFBaseModel{
 	public void setTrading_code(String trading_code) {
 		this.trading_code = trading_code;
 	}
-	public String getBuy_sell() {
-		return buy_sell;
-	}
-	public void setBuy_sell(String buy_sell) {
-		this.buy_sell = buy_sell;
-	}
+	
 	public String getSymbol() {
 		return symbol;
 	}
@@ -38,11 +33,24 @@ public class FF000501Model extends FFBaseModel{
 	public void setVolume(Double volume) {
 		this.volume = volume.longValue();
 	}
-	public Long getValue() {
-		return value;
+	
+	public Long getBuy() {
+		return buy;
 	}
-	public void setValue(Double value) {
-		this.value = value.longValue();
+	public void setBuy(Double buy) {
+		if(buy == null){
+			buy =0d;
+		}
+		this.buy = buy.longValue();
+	}
+	public Long getSell() {
+		return sell;
+	}
+	public void setSell(Double sell) {
+		if(sell == null){
+			sell =0d;
+		}
+		this.sell = sell.longValue();
 	}
 	public Long getTax() {
 		return tax;

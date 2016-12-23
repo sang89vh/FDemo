@@ -3,22 +3,25 @@ package com.ff.fdemo.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ff.fdemo.config.FFConfig;
+import com.ff.fdemo.model.FF000502Model;
 import com.ff.fdemo.service.IFF0005Service;
 
 /**
@@ -60,6 +63,24 @@ public class FF0005Controller extends FFBaseController {
 						+ file.getOriginalFilename() + "!");
 
 		return "redirect:/ff0005/index";
+	}
+	
+	@RequestMapping(value = "/data01", method = RequestMethod.POST)
+	public @ResponseBody List<Map> data01() throws SQLException {
+		List<Map> data = ff0005Service.reportBySymbol();
+		return data;
+	}
+	
+	@RequestMapping(value = "/data02", method = RequestMethod.POST)
+	public @ResponseBody Map data02() throws SQLException {
+		Map data = ff0005Service.reportByAll();
+		return data;
+	}
+	
+	@RequestMapping(value = "/data03", method = RequestMethod.POST)
+	public @ResponseBody Map data03() throws SQLException {
+		Map data = ff0005Service.reportByGrid();
+		return data;
 	}
 
 }
