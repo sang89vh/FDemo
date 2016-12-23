@@ -26,6 +26,8 @@ CREATE TABLE sto_company (company_id bigint(19) NOT NULL AUTO_INCREMENT, name te
 
 CREATE TABLE sto_trade_log (trade_log_id bigint(19) NOT NULL AUTO_INCREMENT, trading_code varchar(255), buy_sell varchar(255), symbol varchar(255), volume bigint(19), value bigint(19), tax bigint(19), fee bigint(19), PRIMARY KEY (trade_log_id));
 
+CREATE TABLE sto_assert_report (assert_report bigint(19) NOT NULL AUTO_INCREMENT, symbol varchar(255), value bigint(19), PRIMARY KEY (assert_report));
+
 CREATE TABLE sys_user_role (user_role_id bigint(19) NOT NULL AUTO_INCREMENT, user_id bigint(19) NOT NULL, user_name varchar(255), role varchar(255), PRIMARY KEY (user_role_id));
 CREATE TABLE sys_user (user_id bigint(19) NOT NULL AUTO_INCREMENT, user_name varchar(255) NOT NULL, password varchar(255) NOT NULL, enabled tinyint(1) DEFAULT b'1', PRIMARY KEY (user_id));
 CREATE TABLE sys_para (sys_para_id bigint(19) NOT NULL AUTO_INCREMENT, code varchar(255) NOT NULL, value text NOT NULL, `GROUP` varchar(255), PRIMARY KEY (sys_para_id));

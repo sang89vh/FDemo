@@ -22,6 +22,7 @@
 					#{fee}
             )
 	</insert>
+
 	<select id="reportBySymbol" resultType="map">
 		select symbol,
 			sum(fee+tax+IFNULL(buy,0)) expenses,
@@ -45,5 +46,19 @@
 		from sto_trade_log
 	
 	</select>
-	
+
+	<insert id="insertAssetReport" parameterType="com.ff.fdemo.model.FF000502Model">
+		INSERT INTO sto_assert_report(
+					symbol,
+					value
+		            
+            )
+    VALUES (
+					#{symbol},
+					#{value}
+            )
+	</insert>
+	<delete id="deleteAssetReport" >
+		delete from sto_assert_report
+	</insert>
 </mapper>

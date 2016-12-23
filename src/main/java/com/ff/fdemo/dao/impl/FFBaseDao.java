@@ -65,5 +65,9 @@ public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
 	public int delete(String name, FFBaseModel parameter) throws SQLException {
 		return getSqlSession().delete(mNamespace+"."+name, parameter);
 	}
+	
+	public int delete(String name) throws SQLException {
+		return getSqlSession().delete(mNamespace+"."+name);
+	}
 
 }

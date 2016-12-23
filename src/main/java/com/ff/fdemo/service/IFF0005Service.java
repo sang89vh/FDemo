@@ -7,6 +7,10 @@ import java.util.Map;
 public interface IFF0005Service {
 	
 	public void  insertTradeLog(String pathFile) ;
+
+	public void  insertAssertReport(String pathFile) ;
+	public void deleteAssetReport() throws SQLException;
+
 	public List<Map> reportBySymbol() throws SQLException;
 	public Map reportByAll() throws SQLException ;
 	public Map reportByGrid() throws SQLException ;

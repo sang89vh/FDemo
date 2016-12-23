@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ff.fdemo.dao.IFF0005Dao;
 import com.ff.fdemo.model.FF000501Model;
+import com.ff.fdemo.model.FF000503Model;
 import com.ff.fdemo.service.IFF0005Service;
 import com.ff.fdemo.utils.ReadPersonalReportExcel;
 
@@ -34,6 +35,24 @@ public class FF0005ServiceImpl implements IFF0005Service {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
+	}
+
+
+	public void insertAssertReport(String pathFile) {
+		try {
+			List<FF000503Model> list = ReadPersonalReportExcel.readAssetReport(pathFile);
+
+			for (FF000503Model prm : list) {
+				ff0005Dao.insertAssetReport(prm);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+		
+	}
+	public void deleteAssetReport() throws SQLException{
+				ff0005Dao.deleteAssetReport();
+		
 	}
 
 	public List<Map> reportBySymbol() throws SQLException {

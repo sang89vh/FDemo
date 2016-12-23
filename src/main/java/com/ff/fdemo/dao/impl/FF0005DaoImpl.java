@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.ff.fdemo.dao.IFF0005Dao;
 import com.ff.fdemo.model.FF000501Model;
+import com.ff.fdemo.model.FF000503Model;
 @Component("FF0005DaoImpl")
 public class FF0005DaoImpl extends FFBaseDao implements IFF0005Dao{
 
@@ -20,7 +21,18 @@ public class FF0005DaoImpl extends FFBaseDao implements IFF0005Dao{
 		
 	}
 
-	public List<Map> reportBySymbol() throws SQLException {
+
+	public void insertAssetReport(FF000503Model prm) throws SQLException {
+		insert("insertAssetReport", prm);
+		
+	}
+
+	public void deleteAssetReport() throws SQLException {
+		delete("deleteAssetReport");
+		
+	}
+
+public List<Map> reportBySymbol() throws SQLException {
 		return selectList("reportBySymbol");
 		
 	}
