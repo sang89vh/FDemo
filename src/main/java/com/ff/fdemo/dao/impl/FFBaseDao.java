@@ -48,6 +48,10 @@ public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
 			throws SQLException {
 		return getSqlSession().selectOne(mNamespace + "." + name, parameter);
 	}
+	public Object selectOne(String name)
+			throws SQLException {
+		return getSqlSession().selectOne(mNamespace + "." + name);
+	}
 
 	public Map<?, ?> getMap(String name, String mapKey) throws SQLException {
 		return getSqlSession().selectMap(mNamespace + "." + name, mapKey);
@@ -60,6 +64,10 @@ public class FFBaseDao extends SqlSessionDaoSupport implements IFFDao {
 	
 	public int delete(String name, FFBaseModel parameter) throws SQLException {
 		return getSqlSession().delete(mNamespace+"."+name, parameter);
+	}
+	
+	public int delete(String name) throws SQLException {
+		return getSqlSession().delete(mNamespace+"."+name);
 	}
 
 }

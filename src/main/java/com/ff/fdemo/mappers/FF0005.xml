@@ -4,24 +4,37 @@
 	<insert id="insertTradeLog" parameterType="com.ff.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="trade_log_id" keyColumn="trade_log_id">
 		INSERT INTO sto_trade_log(
 		            trading_code,
-					buy_sell,
+					sell,
 					symbol,
 					volume,
-					value,
+					buy,
 					tax,
 					fee
 		            
             )
     VALUES (
     				#{trading_code},
-					#{buy_sell},
+					#{sell},
 					#{symbol},
 					#{volume},
-					#{value},
+					#{buy},
 					#{tax},
 					#{fee}
             )
 	</insert>
-	
+	<insert id="insertAssetReport" parameterType="com.ff.fdemo.model.FF000502Model">
+		INSERT INTO sto_assert_report(
+					symbol,
+					value
+		            
+            )
+    VALUES (
+					#{symbol},
+					#{value}
+            )
+	</insert>
+	<delete id="deleteAssetReport" >
+		delete from sto_assert_report
+	</insert>
 	
 </mapper>
