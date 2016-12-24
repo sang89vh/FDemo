@@ -62,7 +62,7 @@ public class FF0005ServiceImpl implements IFF0005Service {
 		return ff0005Dao.reportByAll();
 	}
 
-	public Map reportByGrid() throws SQLException {
+	public List<Map> reportByGrid() throws SQLException {
 		return ff0005Dao.reportByGrid();
 	}
 

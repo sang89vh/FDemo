@@ -65,6 +65,24 @@ public class FF0005Controller extends FFBaseController {
 		return "redirect:/ff0005/index";
 	}
 	
+	@RequestMapping(value = "/upload02", method = RequestMethod.POST)
+	public String upload02(@RequestParam("file") MultipartFile file,
+			RedirectAttributes redirectAttributes) throws IOException, SQLException {
+		String pathFile = FFConfig.DOWNLOAD_REPORT_PATH.replace("{0}",
+				"AssetReport.xls");
+		File input = new File(pathFile);
+		File convFile = new File(file.getOriginalFilename());
+		file.transferTo(convFile);
+		FileUtils.copyFile(convFile, input);
+		ff0005Service.deleteAssetReport();
+		ff0005Service.insertAssertReport(pathFile);
+		redirectAttributes
+				.addFlashAttribute("message", "You successfully uploaded "
+						+ file.getOriginalFilename() + "!");
+
+		return "redirect:/ff0005/index";
+	}
+	
 	@RequestMapping(value = "/data01", method = RequestMethod.POST)
 	public @ResponseBody List<Map> data01() throws SQLException {
 		List<Map> data = ff0005Service.reportBySymbol();
@@ -78,8 +96,8 @@ public class FF0005Controller extends FFBaseController {
 	}
 	
 	@RequestMapping(value = "/data03", method = RequestMethod.POST)
-	public @ResponseBody Map data03() throws SQLException {
-		Map data = ff0005Service.reportByGrid();
+	public @ResponseBody List<Map> data03() throws SQLException {
+		List<Map> data = ff0005Service.reportByGrid();
 		return data;
 	}
 

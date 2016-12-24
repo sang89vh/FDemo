@@ -16,5 +16,5 @@ public void insertAssetReport(FF000503Model prm) throws SQLException;
 
 	public List<Map>  reportBySymbol() throws SQLException;
 	public Map  reportByAll() throws SQLException;
-	public Map  reportByGrid() throws SQLException;
+	public List<Map>  reportByGrid() throws SQLException;
 }

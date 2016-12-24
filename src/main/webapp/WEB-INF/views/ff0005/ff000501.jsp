@@ -156,9 +156,11 @@ var drawGrid = function() {
         },
  
         fields: [
-            { name: "income",title:"income", type: "text" },
-            { name: "expenses",title:"expenses", type: "text" },
-            { name: "ratio",title:"Ratio" ,type: "text" }
+        	{ name: "symbol",title:"Symbol", type: "text" },
+        	{ name: "expenses",title:"Expenses", type: "number" },
+            { name: "income",title:"Income", type: "number" },
+            { name: "profit",title:"Profit", type: "number" },
+            { name: "roe",title:"ROE" ,type: "number" }
         ]
     });
  
@@ -175,7 +177,24 @@ $(document).ready(function(){
 	<h5 th:text="${message}" />
 </div>
 <div class="table-responsive form-group">
+<h5>Trading log</h5>
 <form method="POST" enctype="multipart/form-data" action="${ctx}/ff0005/upload?${_csrf.parameterName}=${_csrf.token}">
+	<table class="table">
+		<tr>
+			<td></td>
+			<td>
+				<div class="form-group">
+					<input type="file" name="file" /><br/>
+					<input type="submit" value="Upload" class="btn"/>
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+<div class="table-responsive form-group">
+<h5>Asset Report</h5>
+<form method="POST" enctype="multipart/form-data" action="${ctx}/ff0005/upload02?${_csrf.parameterName}=${_csrf.token}">
 	<table class="table">
 		<tr>
 			<td></td>

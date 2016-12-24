@@ -40,8 +40,8 @@ public List<Map> reportBySymbol() throws SQLException {
 	public Map reportByAll() throws SQLException {
 		return (Map) selectOne("reportByAll");
 	}
-	public Map reportByGrid() throws SQLException {
-		return (Map) selectOne("reportByGrid");
+	public List<Map> reportByGrid() throws SQLException {
+		return  selectList("reportByGrid");
 	}
 
 	

@@ -7,7 +7,7 @@
 		
 
 		<form name='loginForm' id="form-signup" class="form-signup"
-			action="<c:url value='/login' />" method='POST'>
+			action="<c:url value='/ff0001/login' />" method='GET'>
 			<div >
 				<c:if test="${not empty error}">
 					<div class="error" style="text-align: center;">${error}</div>

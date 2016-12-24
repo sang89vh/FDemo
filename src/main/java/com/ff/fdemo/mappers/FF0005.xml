@@ -24,26 +24,33 @@
 	</insert>
 
 	<select id="reportBySymbol" resultType="map">
-		select symbol,
-			sum(fee+tax+IFNULL(buy,0)) expenses,
-			sum(IFNULL(sell,0)) income 
-		from sto_trade_log group by symbol 
+		select tdl.symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
+		from sto_trade_log tdl group by symbol 
 	
 	</select>
 	<select id="reportByAll" resultType="map">
 		select 'All' report,
 			sum(fee+tax+IFNULL(buy,0)) expenses,
-			sum(IFNULL(sell,0)) income 
+			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset),0) income 
 		from sto_trade_log
 	
 	</select>
 	
 	<select id="reportByGrid" resultType="map">
-		select 
-			sum(fee+tax+IFNULL(buy,0)) expenses,
-			(sum(IFNULL(sell,0)) - sum(fee+tax+IFNULL(buy,0))) income ,
-            (sum(IFNULL(sell,0)) - sum(fee+tax+IFNULL(buy,0)))/sum(fee+tax+IFNULL(buy,0)) ratio
-		from sto_trade_log
+		(select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
+select 'All' symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset ),0) income
+		from sto_trade_log tdl  ) summary)
+        
+        union
+        (select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
+			select tdl.symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
+		from sto_trade_log tdl group by symbol ) summary)
 	
 	</select>
 
@@ -60,5 +67,5 @@
 	</insert>
 	<delete id="deleteAssetReport" >
 		delete from sto_assert_report
-	</insert>
+	</delete>
 </mapper>
