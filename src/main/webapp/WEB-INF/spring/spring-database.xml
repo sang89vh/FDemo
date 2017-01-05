@@ -21,7 +21,7 @@
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	    <property name="url" value="jdbc:mysql://localhost:3306/fdemo" />
 	    <property name="username" value="root" />
-	    <property name="password" value="" />
+	    <property name="password" value="Admin@123" />
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
