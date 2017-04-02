@@ -125,7 +125,7 @@ public class FFDataFeed {
 				Elements tds = tr.getElementsByTag("td");
 				FF0000Model re = new FF0000Model();
 				String symbolEvent = tds.get(0).text();
-				re.setSymbol(symbolEvent);
+				re.setSYMBOL(symbolEvent);
 
 				String eventType = tds.get(1).text();
 				eventType = eventType.trim();
@@ -136,22 +136,22 @@ public class FFDataFeed {
 				}else if(stock.equalsIgnoreCase(meeting)){
 					eventType = "MEETING";
 				}
-				re.setEvent_type(eventType);
+				re.setEVENT_TYPE(eventType);
 
 				// ngay giao dich khong huong quyen
 				String rightEventDate = tds.get(2).text().replaceAll("\\D+", "");
-				re.setRight_date(rightEventDate);
+				re.setRIGHT_DATE(rightEventDate);
 
 				// ngay dang ky cuoi cung
 				String registerDate = tds.get(3).text().replaceAll("\\D+", "");
-				re.setRegister_date(registerDate);
+				re.setREGISTER_DATE(registerDate);
 
 				// ngay thuc hien quyen
 				String actionDate = tds.get(4).text().replaceAll("\\D+", "");
-				re.setAction_date(actionDate);
+				re.setACTION_DATE(actionDate);
 
 				String content = tds.get(5).text();
-				re.setContent(content);
+				re.setCONTENT(content);
 				
 				data.add(re);
 			}

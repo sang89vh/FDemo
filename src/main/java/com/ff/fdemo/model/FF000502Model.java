@@ -8,26 +8,26 @@ public class FF000502Model extends FFBaseModel{
 	 * 
 	 */
 	private static final long serialVersionUID = -8570734987871959139L;
-	private String symbol;
-	private BigInteger income;
-	private BigInteger expenses;
-	public String getSymbol() {
-		return symbol;
+	private String SYMBOL;
+	private Long INCOME;
+	private Long EXPENSES;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol;
 	}
-	public BigInteger getIncome() {
-		return income;
+	public Long getINCOME() {
+		return INCOME;
 	}
-	public void setIncome(BigInteger income) {
-		this.income = income;
+	public void setINCOME(Long income) {
+		this.INCOME = income;
 	}
-	public BigInteger getExpenses() {
-		return expenses;
+	public Long getEXPENSES() {
+		return EXPENSES;
 	}
-	public void setExpenses(BigInteger expenses) {
-		this.expenses = expenses;
+	public void setEXPENSES(Long expenses) {
+		this.EXPENSES = expenses;
 	}
 	
 

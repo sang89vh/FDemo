@@ -5,61 +5,61 @@ public class FF000402Model  extends FFBaseModel{
 	 * 
 	 */
 	private static final long serialVersionUID = 7241211868856531845L;
-	private Long company_id;
-	private String name;
-	private Long total_years_activity;
-	private Long point;
-	private String domain;
-	private String listed_date;
-	private String symbol;
-	private String status;
-	public Long getCompany_id() {
-		return company_id;
+	private Long COMPANY_ID;
+	private String NAME;
+	private Long TOTAL_YEARS_ACTIVITY;
+	private Long POINT;
+	private String DOMAIN;
+	private String LISTED_DATE;
+	private String SYMBOL;
+	private String STATUS;
+	public Long getCOMPANY_ID() {
+		return COMPANY_ID;
 	}
-	public void setCompany_id(Long company_id) {
-		this.company_id = company_id;
+	public void setCOMPANY_ID(Long company_id) {
+		this.COMPANY_ID = company_id;
 	}
-	public String getName() {
-		return name;
+	public String getNAME() {
+		return NAME;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNAME(String name) {
+		this.NAME = name;
 	}
-	public Long getTotal_years_activity() {
-		return total_years_activity;
+	public Long getTOTAL_YEARS_ACTIVITY() {
+		return TOTAL_YEARS_ACTIVITY;
 	}
-	public void setTotal_years_activity(Long total_years_activity) {
-		this.total_years_activity = total_years_activity;
+	public void setTOTAL_YEARS_ACTIVITY(Long total_years_activity) {
+		this.TOTAL_YEARS_ACTIVITY = total_years_activity;
 	}
-	public Long getPoint() {
-		return point;
+	public Long getPOINT() {
+		return POINT;
 	}
-	public void setPoint(Long point) {
-		this.point = point;
+	public void setPOINT(Long point) {
+		this.POINT = point;
 	}
-	public String getDomain() {
-		return domain;
+	public String getDOMAIN() {
+		return DOMAIN;
 	}
-	public void setDomain(String domain) {
-		this.domain = domain;
+	public void setDOMAIN(String domain) {
+		this.DOMAIN = domain;
 	}
-	public String getListed_date() {
-		return listed_date;
+	public String getLISTED_DATE() {
+		return LISTED_DATE;
 	}
-	public void setListed_date(String listed_date) {
-		this.listed_date = listed_date;
+	public void setLISTED_DATE(String listed_date) {
+		this.LISTED_DATE = listed_date;
 	}
-	public String getSymbol() {
-		return symbol;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol;
 	}
-	public String getStatus() {
-		return status;
+	public String getSTATUS() {
+		return STATUS;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setSTATUS(String status) {
+		this.STATUS = status;
 	}
 	
 	

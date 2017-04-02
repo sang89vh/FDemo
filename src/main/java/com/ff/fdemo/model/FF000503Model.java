@@ -6,19 +6,19 @@ public class FF000503Model extends FFBaseModel {
 	 * 
 	 */
 	private static final long serialVersionUID = -3368248173313834073L;
-	private String symbol;
-	private Long value;
-	public String getSymbol() {
-		return symbol;
+	private String SYMBOL;
+	private Long VALUE;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol;
 	}
-	public Long getValue() {
-		return value;
+	public Long getVALUE() {
+		return VALUE;
 	}
-	public void setValue(Double value) {
-		this.value = value.longValue();
+	public void setVALUE(Double value) {
+		this.VALUE = value.longValue();
 	}
 
 }

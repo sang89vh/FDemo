@@ -47,30 +47,30 @@ public class ReadDailyPriceExcel {
 				// Check the cell type and format accordingly
 				switch (i) {
 				case 1:
-					ff0002Model.setSymbol(cell.getStringCellValue());
+					ff0002Model.setSYMBOL(cell.getStringCellValue());
 					break;
 				case 2:
-					ff0002Model.setTrading_date(cell.getDateCellValue());
+					ff0002Model.setTRADING_DATE(cell.getDateCellValue());
 					break;
 				case 3:
 					db = cell.getNumericCellValue() * 1000;
-					ff0002Model.setOpen_price(db.longValue());
+					ff0002Model.setOPEN_PRICE(db.longValue());
 					break;
 				case 4:
 					db = cell.getNumericCellValue() * 1000;
-					ff0002Model.setHigh_price(db.longValue());
+					ff0002Model.setHIGH_PRICE(db.longValue());
 					break;
 				case 5:
 					db = cell.getNumericCellValue() * 1000;
-					ff0002Model.setLow_price(db.longValue());
+					ff0002Model.setLOW_PRICE(db.longValue());
 					break;
 				case 6:
 					db = cell.getNumericCellValue() * 1000;
-					ff0002Model.setClose_price(db.longValue());
+					ff0002Model.setCLOSE_PRICE(db.longValue());
 					break;
 				case 7:
 					db = cell.getNumericCellValue() * 1000;
-					ff0002Model.setVolume(db.longValue());
+					ff0002Model.setVOLUME(db.longValue());
 					break;
 				}
 

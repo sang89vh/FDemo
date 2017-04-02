@@ -7,62 +7,69 @@ public class FF000501Model extends FFBaseModel{
 	 * 
 	 */
 	private static final long serialVersionUID = 8639442104533676538L;
-	private String trading_code;
-	private String symbol;
-	private Long volume;
-	private Long buy;
-	private Long sell;
-	private Long tax;
-	private Long fee;
-	public String getTrading_code() {
-		return trading_code;
+	private String TRADING_CODE;
+	private String SYMBOL;
+	private Long VOLUME;
+	private Long BUY;
+	private Long SELL;
+	private Long TAX;
+	private Long FEE;
+	private Long MARGIN;
+	public String getTRADING_CODE() {
+		return TRADING_CODE;
 	}
-	public void setTrading_code(String trading_code) {
-		this.trading_code = trading_code;
-	}
-	
-	public String getSymbol() {
-		return symbol;
-	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-	public Long getVolume() {
-		return volume;
-	}
-	public void setVolume(Double volume) {
-		this.volume = volume.longValue();
+	public void setTRADING_CODE(String trading_code) {
+		this.TRADING_CODE = trading_code;
 	}
 	
-	public Long getBuy() {
-		return buy;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setBuy(Double buy) {
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol;
+	}
+	public Long getVOLUME() {
+		return VOLUME;
+	}
+	public void setVOLUME(Double volume) {
+		this.VOLUME = volume.longValue();
+	}
+	
+	public Long getBUY() {
+		return BUY;
+	}
+	public void setBUY(Double buy) {
 		if(buy == null){
 			buy =0d;
 		}
-		this.buy = buy.longValue();
+		this.BUY = buy.longValue();
 	}
-	public Long getSell() {
-		return sell;
+	public Long getSELL() {
+		return SELL;
 	}
-	public void setSell(Double sell) {
+	public void setSELL(Double sell) {
 		if(sell == null){
 			sell =0d;
 		}
-		this.sell = sell.longValue();
+		this.SELL = sell.longValue();
 	}
-	public Long getTax() {
-		return tax;
+	public Long getTAX() {
+		return TAX;
 	}
-	public void setTax(Double tax) {
-		this.tax = tax.longValue();
+	public void setTAX(Double tax) {
+		this.TAX = tax.longValue();
 	}
-	public Long getFee() {
-		return fee;
+	public Long getFEE() {
+		return FEE;
 	}
-	public void setFee(Double fee) {
-		this.fee = fee.longValue();
+	public void setFEE(Double fee) {
+		this.FEE = fee.longValue();
+	}
+	public Long getMARGIN() {
+		return MARGIN;
+	}
+	public void setMARGIN(Long mARGIN) {
+		MARGIN = mARGIN;
 	}
 	
 	

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ff0004" >
-	<insert id="insertCompany" parameterType="com.ff.fdemo.model.FF000401Model" useGeneratedKeys="true" keyProperty="company_id" keyColumn="company_id">
-		INSERT INTO sto_company(
-		            name, 
-		            listed_date,
-		            domain,
-		            symbol,
-		            status
+	<insert id="insertCompany" parameterType="com.ff.fdemo.model.FF000401Model" useGeneratedKeys="true" keyProperty="COMPANY_ID" keyColumn="COMPANY_ID">
+		INSERT INTO STO_COMPANY(
+		            NAME, 
+		            LISTED_DATE,
+		            DOMAIN,
+		            SYMBOL,
+		            STATUS
 		            
             )
     VALUES (
-    				#{companyName}, 
-    				STR_TO_DATE(#{listedDate}, '%Y-%m-%d'), 
-<!--     				to_date(#{listedDate}, 'yyyy-mm-dd'),  -->
-    				#{industryName},  
-    				#{symbol},  
-    				#{status}
+    				#{COMPANYNAME}, 
+<!--     				STR_TO_DATE(#{LISTEDDATE}, '%Y-%M-%D'),  -->
+    				TO_DATE(#{LISTEDDATE}, 'YYYY-MM-DD'), 
+    				#{INDUSTRYNAME},  
+    				#{SYMBOL},  
+    				#{STATUS}
             )
 	</insert>
 	
 	<select id="getAllCompanies" resultType="com.ff.fdemo.model.FF000402Model">
 		SELECT 
-			company_id, 
-			name, 
-			total_years_activity, 
-			point, 
-			domain, 
-			listed_date, 
-	        symbol, 
-	        status
-	  	FROM sto_company where status = 'listed'
+			COMPANY_ID, 
+			NAME, 
+			TOTAL_YEARS_ACTIVITY, 
+			POINT, 
+			DOMAIN, 
+			LISTED_DATE, 
+	        SYMBOL, 
+	        STATUS
+	  	FROM STO_COMPANY WHERE STATUS = 'listed'
   	</select>
 </mapper>
