@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ff0002" >
+	<select id="getHistoricalPriceBySymbol" parameterType="com.myboxteam.fdemo.model.FF0002Model" resultType="com.myboxteam.fdemo.model.FF0002Model">
+		select symbol,
+			   trading_date,
+			   open_price,
+			   high_price,
+			   low_price,
+			   close_price,
+			   volume,
+			   market
+		from sto_his_price
+		where 1=1
+		<if test="symbol != null and symbol != '' ">
+			and symbol = upper(#{symbol})
+		</if>
+		order by trading_date asc
+	</select>
+	<insert id="insertHistoricalPrice" parameterType="com.myboxteam.fdemo.model.FF0002Model" useGeneratedKeys="true" keyProperty="his_price_id" keyColumn="his_price_id">
+		insert into sto_his_price
+				   (   
+					   symbol,
+					   trading_date,
+					   open_price,
+					   high_price,
+					   low_price,
+					   close_price,
+					   volume,
+					   market
+					) 
+					
+						values
+					(
+					   #{symbol},
+					   #{trading_date},
+					   #{open_price},
+					   #{high_price},
+					   #{low_price},
+					   #{close_price},
+					   #{volume},
+					   #{market}
+					)
+	</insert>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ff0005" >
+	<insert id="insertTradeLog" parameterType="com.myboxteam.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="trade_log_id" keyColumn="trade_log_id">
+		INSERT INTO sto_trade_log(
+		            trading_code,
+					sell,
+					symbol,
+					volume,
+					buy,
+					tax,
+					fee
+		            
+            )
+    VALUES (
+    				#{trading_code},
+					#{sell},
+					#{symbol},
+					#{volume},
+					#{buy},
+					#{tax},
+					#{fee}
+            )
+	</insert>
+
+	<select id="reportBySymbol" resultType="map">
+		select tdl.symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
+		from sto_trade_log tdl group by symbol 
+	
+	</select>
+	<select id="reportByAll" resultType="map">
+		select 'All' report,
+			sum(fee+tax+IFNULL(buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset),0) income 
+		from sto_trade_log
+	
+	</select>
+	
+	<select id="reportByGrid" resultType="map">
+		(select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
+select 'All' symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset ),0) income
+		from sto_trade_log tdl  ) summary)
+        
+        union
+        (select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
+			select tdl.symbol,
+			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
+			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
+		from sto_trade_log tdl group by symbol ) summary)
+	
+	</select>
+
+	<insert id="insertAssetReport" parameterType="com.myboxteam.fdemo.model.FF000502Model">
+		INSERT INTO sto_assert_report(
+					symbol,
+					value
+		            
+            )
+    VALUES (
+					#{symbol},
+					#{value}
+            )
+	</insert>
+	<delete id="deleteAssetReport" >
+		delete from sto_assert_report
+	</delete>
+</mapper>
