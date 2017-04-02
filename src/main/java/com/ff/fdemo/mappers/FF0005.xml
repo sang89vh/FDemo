@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ff0005" >
-	<insert id="insertTradeLog" parameterType="com.ff.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="trade_log_id" keyColumn="trade_log_id">
-		INSERT INTO sto_trade_log(
-		            trading_code,
-					sell,
-					symbol,
-					volume,
-					buy,
-					tax,
-					fee
+	<insert id="insertTradeLog" parameterType="com.ff.fdemo.model.FF000501Model" useGeneratedKeys="true" keyProperty="TRADE_LOG_ID" keyColumn="TRADE_LOG_ID">
+		INSERT INTO STO_TRADE_LOG(
+		            TRADING_CODE,
+					SELL,
+					SYMBOL,
+					VOLUME,
+					BUY,
+					TAX,
+					FEE
 		            
             )
     VALUES (
-    				#{trading_code},
-					#{sell},
-					#{symbol},
-					#{volume},
-					#{buy},
-					#{tax},
-					#{fee}
+    				#{TRADING_CODE},
+					#{SELL},
+					#{SYMBOL},
+					#{VOLUME},
+					#{BUY},
+					#{TAX},
+					#{FEE}
             )
 	</insert>
 
 	<select id="reportBySymbol" resultType="map">
-		select tdl.symbol,
-			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
-			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
-		from sto_trade_log tdl group by symbol 
+		SELECT TDL.SYMBOL,
+			SUM(TDL.FEE+TDL.TAX+IFNULL(TDL.BUY,0)) EXPENSES,
+			SUM(IFNULL(SELL,0)) + IFNULL((SELECT  ASSET.VALUE FROM STO_ASSERT_REPORT ASSET WHERE ASSET.SYMBOL=TDL.SYMBOL),0) INCOME
+		FROM STO_TRADE_LOG TDL GROUP BY SYMBOL 
 	
 	</select>
 	<select id="reportByAll" resultType="map">
-		select 'All' report,
-			sum(fee+tax+IFNULL(buy,0)) expenses,
-			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset),0) income 
-		from sto_trade_log
+		SELECT 'ALL' REPORT,
+			SUM(FEE+TAX+IFNULL(BUY,0)) EXPENSES,
+			SUM(IFNULL(SELL,0)) + IFNULL((SELECT  SUM(ASSET.VALUE) FROM STO_ASSERT_REPORT ASSET),0) INCOME 
+		FROM STO_TRADE_LOG
 	
 	</select>
 	
 	<select id="reportByGrid" resultType="map">
-		(select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
-select 'All' symbol,
-			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
-			sum(IFNULL(sell,0)) + IFNULL((select  sum(asset.value) from sto_assert_report asset ),0) income
-		from sto_trade_log tdl  ) summary)
+		(SELECT SYMBOL,EXPENSES,INCOME,(INCOME-EXPENSES) PROFIT,(INCOME-EXPENSES)/EXPENSES*100 ROE FROM (
+SELECT 'ALL' SYMBOL,
+			SUM(TDL.FEE+TDL.TAX+IFNULL(TDL.BUY,0)) EXPENSES,
+			SUM(IFNULL(SELL,0)) + IFNULL((SELECT  SUM(ASSET.VALUE) FROM STO_ASSERT_REPORT ASSET ),0) INCOME
+		FROM STO_TRADE_LOG TDL  ) SUMMARY)
         
-        union
-        (select symbol,expenses,income,(income-expenses) profit,(income-expenses)/expenses*100 roe from (
-			select tdl.symbol,
-			sum(tdl.fee+tdl.tax+IFNULL(tdl.buy,0)) expenses,
-			sum(IFNULL(sell,0)) + IFNULL((select  asset.value from sto_assert_report asset where asset.symbol=tdl.symbol),0) income
-		from sto_trade_log tdl group by symbol ) summary)
+        UNION
+        (SELECT SYMBOL,EXPENSES,INCOME,(INCOME-EXPENSES) PROFIT,(INCOME-EXPENSES)/EXPENSES*100 ROE FROM (
+			SELECT TDL.SYMBOL,
+			SUM(TDL.FEE+TDL.TAX+IFNULL(TDL.BUY,0)) EXPENSES,
+			SUM(IFNULL(SELL,0)) + IFNULL((SELECT  ASSET.VALUE FROM STO_ASSERT_REPORT ASSET WHERE ASSET.SYMBOL=TDL.SYMBOL),0) INCOME
+		FROM STO_TRADE_LOG TDL GROUP BY SYMBOL ) SUMMARY)
 	
 	</select>
 
 	<insert id="insertAssetReport" parameterType="com.ff.fdemo.model.FF000502Model">
-		INSERT INTO sto_assert_report(
-					symbol,
-					value
+		INSERT INTO STO_ASSERT_REPORT(
+					SYMBOL,
+					VALUE
 		            
             )
     VALUES (
-					#{symbol},
-					#{value}
+					#{SYMBOL},
+					#{VALUE}
             )
 	</insert>
 	<delete id="deleteAssetReport" >
-		delete from sto_assert_report
+		DELETE FROM STO_ASSERT_REPORT
 	</delete>
 </mapper>

@@ -36,18 +36,18 @@ public class ReadPersonalReportExcel {
 			Iterator<Cell> cellIterator = row.cellIterator();
 			FF000501Model model = new FF000501Model();
 			
-			model.setTrading_code(String.valueOf(row.getCell(1).getNumericCellValue()));
+			model.setTRADING_CODE(String.valueOf(row.getCell(1).getNumericCellValue()));
 			String bysell = row.getCell(2).getStringCellValue();
 			if("Mua".equalsIgnoreCase(bysell)){
-				model.setBuy(row.getCell(8).getNumericCellValue());
+				model.setBUY(row.getCell(8).getNumericCellValue());
 			}else{
-				model.setSell(row.getCell(8).getNumericCellValue());
+				model.setSELL(row.getCell(8).getNumericCellValue());
 			}
-			model.setSymbol(row.getCell(3).getStringCellValue());
-			model.setVolume(row.getCell(6).getNumericCellValue());
+			model.setSYMBOL(row.getCell(3).getStringCellValue());
+			model.setVOLUME(row.getCell(6).getNumericCellValue());
 			
-			model.setTax(row.getCell(9).getNumericCellValue());
-			model.setFee(row.getCell(10).getNumericCellValue());
+			model.setTAX(row.getCell(9).getNumericCellValue());
+			model.setFEE(row.getCell(10).getNumericCellValue());
 
 			list.add(model);
 
@@ -77,8 +77,8 @@ public class ReadPersonalReportExcel {
 			Iterator<Cell> cellIterator = row.cellIterator();
 			FF000503Model model = new FF000503Model();
 			
-			model.setSymbol(row.getCell(0).getStringCellValue());
-			model.setValue(row.getCell(1).getNumericCellValue());
+			model.setSYMBOL(row.getCell(0).getStringCellValue());
+			model.setVALUE(row.getCell(1).getNumericCellValue());
 
 			list.add(model);
 

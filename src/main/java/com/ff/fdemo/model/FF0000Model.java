@@ -10,120 +10,120 @@ public class FF0000Model extends FFBaseModel{
 
 	private static final long serialVersionUID = -8131698370438920674L;
 	
-	private Long event_right_id;
-    private String symbol;
-    private String exchange;
-    private String event_type;
-    private Date right_date;
-    private Date register_date;
-    private Date action_date;
-    private String content;
-    private Long event_percent;
-    private Long current_price;
+	private Long EVENT_RIGHT_ID;
+    private String SYMBOL;
+    private String EXCHANGE;
+    private String EVENT_TYPE;
+    private Date RIGHT_DATE;
+    private Date REGISTER_DATE;
+    private Date ACTION_DATE;
+    private String CONTENT;
+    private Long EVENT_PERCENT;
+    private Long CURRENT_PRICE;
     
     
-    private String  events;
-    private String start;
-    private String end;
+    private String  EVENTS;
+    private String START;
+    private String END;
     	
-	public Long getEvent_right_id() {
-		return event_right_id;
+	public Long getEVENT_RIGHT_ID() {
+		return EVENT_RIGHT_ID;
 	}
-	public void setEvent_right_id(Long event_right_id) {
-		this.event_right_id = event_right_id;
+	public void setEVENT_RIGHT_ID(Long event_right_id) {
+		this.EVENT_RIGHT_ID = event_right_id;
 	}
-	public String getSymbol() {
-		return symbol;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol;
 	}
-	public String getExchange() {
-		return exchange;
+	public String getEXCHANGE() {
+		return EXCHANGE;
 	}
-	public void setExchange(String exchange) {
-		this.exchange = exchange;
+	public void setEXCHANGE(String exchange) {
+		this.EXCHANGE = exchange;
 	}
-	public String getEvent_type() {
-		return event_type;
+	public String getEVENT_TYPE() {
+		return EVENT_TYPE;
 	}
-	public void setEvent_type(String event_type) {
-		this.event_type = event_type;
+	public void setEVENT_TYPE(String event_type) {
+		this.EVENT_TYPE = event_type;
 	}
-	public Date getRight_date() {
-		return right_date;
+	public Date getRIGHT_DATE() {
+		return RIGHT_DATE;
 	}
-	public void setRight_date(Date right_date) {
-		this.right_date = right_date;
+	public void setRIGHT_DATE(Date right_date) {
+		this.RIGHT_DATE = right_date;
 	}
-	public void setRight_date(String str_right_date) {
+	public void setRIGHT_DATE(String str_right_date) {
 		try {
-			this.right_date = FFUtils.convertDDMMYYToDate(str_right_date);
+			this.RIGHT_DATE = FFUtils.convertDDMMYYToDate(str_right_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}
 	}
-	public Date getRegister_date() {
-		return register_date;
+	public Date getREGISTER_DATE() {
+		return REGISTER_DATE;
 	}
-	public void setRegister_date(Date register_date) {
-		this.register_date = register_date;
+	public void setREGISTER_DATE(Date register_date) {
+		this.REGISTER_DATE = register_date;
 	}
-	public void setRegister_date(String register_date) {
+	public void setREGISTER_DATE(String register_date) {
 		try {
-			this.register_date = FFUtils.convertDDMMYYToDate(register_date);
+			this.REGISTER_DATE = FFUtils.convertDDMMYYToDate(register_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}
 	}
-	public Date getAction_date() {
-		return action_date;
+	public Date getACTION_DATE() {
+		return ACTION_DATE;
 	}
-	public void setAction_date(Date action_date) {
-		this.action_date = action_date;
+	public void setACTION_DATE(Date action_date) {
+		this.ACTION_DATE = action_date;
 	}
-	public void setAction_date(String action_date) {
+	public void setACTION_DATE(String action_date) {
 		try {
-			this.action_date = FFUtils.convertDDMMYYToDate(action_date);
+			this.ACTION_DATE = FFUtils.convertDDMMYYToDate(action_date);
 		} catch (ParseException e) {
 			logger.error(e.getMessage(),e);
 		}
 	}
-	public String getContent() {
-		return content;
+	public String getCONTENT() {
+		return CONTENT;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setCONTENT(String content) {
+		this.CONTENT = content;
 	}
-	public Long getEvent_percent() {
-		return event_percent;
+	public Long getEVENT_PERCENT() {
+		return EVENT_PERCENT;
 	}
-	public void setEvent_percent(Long event_percent) {
-		this.event_percent = event_percent;
+	public void setEVENT_PERCENT(Long event_percent) {
+		this.EVENT_PERCENT = event_percent;
 	}
-	public Long getCurrent_price() {
-		return current_price;
+	public Long getCURRENT_PRICE() {
+		return CURRENT_PRICE;
 	}
-	public void setCurrent_price(Long current_price) {
-		this.current_price = current_price;
+	public void setCURRENT_PRICE(Long current_price) {
+		this.CURRENT_PRICE = current_price;
 	}
-	public String getEvents() {
-		return events;
+	public String getEVENTS() {
+		return EVENTS;
 	}
-	public void setEvents(String events) {
-		this.events = events;
+	public void setEVENTS(String events) {
+		this.EVENTS = events;
 	}
-	public String getStart() {
-		return start;
+	public String getSTART() {
+		return START;
 	}
-	public void setStart(String start) {
-		this.start = start;
+	public void setSTART(String start) {
+		this.START = start;
 	}
-	public String getEnd() {
-		return end;
+	public String getEND() {
+		return END;
 	}
-	public void setEnd(String end) {
-		this.end = end;
+	public void setEND(String end) {
+		this.END = end;
 	}
     
     

@@ -2,89 +2,89 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ff0000" >
 	<insert id="insertRightEvent" parameterType="com.ff.fdemo.model.FF0000Model">
-		INSERT INTO sto_event_right(
+		INSERT INTO STO_EVENT_RIGHT(
 					
-					<if test="exchange !=null and exchange !='' "> 
-						exchange, 
+					<if test="EXCHANGE !=null and EXCHANGE !='' "> 
+						EXCHANGE, 
 					</if>
-					<if test="event_type !=null and event_type !='' ">
-						event_type, 
+					<if test="EVENT_TYPE !=null and EVENT_TYPE !='' ">
+						EVENT_TYPE, 
 					</if>
-					<if test="right_date !=null">
-						right_date, 
+					<if test="RIGHT_DATE !=null">
+						RIGHT_DATE, 
 					</if>
-					<if test="register_date !=null">
-						register_date, 
+					<if test="REGISTER_DATE !=null">
+						REGISTER_DATE, 
 					</if>
-					<if test="action_date !=null">
-						action_date, 
+					<if test="ACTION_DATE !=null">
+						ACTION_DATE, 
 					</if>
-					<if test="content !=null and content !='' ">
-						content, 
+					<if test="CONTENT !=null and CONTENT !='' ">
+						CONTENT, 
 					</if>
-					<if test="event_percent !=null">
-						event_percent, 
+					<if test="EVENT_PERCENT !=null">
+						EVENT_PERCENT, 
 					</if>
-					<if test="current_price !=null">
-						current_price,
+					<if test="CURRENT_PRICE !=null">
+						CURRENT_PRICE,
 					</if>
-					symbol
+					SYMBOL
 				)
 			VALUES (
 					
-					<if test="exchange !=null and exchange !='' "> 
-						#{exchange}, 
+					<if test="EXCHANGE !=null and EXCHANGE !='' "> 
+						#{EXCHANGE}, 
 					</if>
-					<if test="event_type !=null and event_type !='' ">
-						#{event_type}, 
+					<if test="EVENT_TYPE !=null and EVENT_TYPE !='' ">
+						#{EVENT_TYPE}, 
 					</if>
-					<if test="right_date !=null">
-						#{right_date}, 
+					<if test="RIGHT_DATE !=null">
+						#{RIGHT_DATE}, 
 					</if>
-					<if test="register_date !=null">
-						#{register_date}, 
+					<if test="REGISTER_DATE !=null">
+						#{REGISTER_DATE}, 
 					</if>
-					<if test="action_date !=null">
-						#{action_date}, 
+					<if test="ACTION_DATE !=null">
+						#{ACTION_DATE}, 
 					</if>
-					<if test="content !=null and content !='' ">
-						#{content}, 
+					<if test="CONTENT !=null and CONTENT !='' ">
+						#{CONTENT}, 
 					</if>
-					<if test="event_percent !=null">
-						#{event_percent}, 
+					<if test="EVENT_PERCENT !=null">
+						#{EVENT_PERCENT}, 
 					</if>
-					<if test="current_price !=null">
-						#{current_price},
+					<if test="CURRENT_PRICE !=null">
+						#{CURRENT_PRICE},
 					</if>
-					#{symbol}
+					#{SYMBOL}
 					)
 	</insert>
 	<select id="checkRightEvent" parameterType="com.ff.fdemo.model.FF0000Model" resultType="int">
-		select count(event_right_id)
-			from sto_event_right
-			where symbol = #{symbol}
-				and event_type = #{event_type}
-				and DATE_FORMAT(right_date, '%Y-%m-%d %H:%i:%s') = #{right_date}		
-<!-- 				and to_char(right_date, 'yyyy-mm-dd hh:mm:ss') = #{right_date}		 -->
+		SELECT COUNT(EVENT_RIGHT_ID)
+			FROM STO_EVENT_RIGHT
+			WHERE SYMBOL = #{SYMBOL}
+				AND EVENT_TYPE = #{EVENT_TYPE}
+<!-- 				AND DATE_FORMAT(RIGHT_DATE, '%Y-%M-%D %H:%I:%S') = #{RIGHT_DATE}		 -->
+				AND TO_CHAR(RIGHT_DATE, 'YYYY-MM-DD HH:MM:SS') = #{RIGHT_DATE}		
 	
 	</select>
 	<select id="searchRightEventBySymbol" parameterType="com.ff.fdemo.model.FF0000Model" resultType="com.ff.fdemo.model.FF000001Model">
-		select  event_right_id as id,
-				symbol as resourceId,
-				DATE_FORMAT(right_date,'%Y-%m-%d') as start,
-<!-- 				to_char(action_date,'YYYY-MM-DD') as end, -->
-				concat(symbol,':',content) title,
-<!-- 				symbol||':'||content title, -->
-				event_type
-		from sto_event_right
-		where right_date is not null
-			<if test="symbol !=null and symbol !='' ">
-				and symbol = upper(#{symbol})
+		SELECT  EVENT_RIGHT_ID AS ID,
+				SYMBOL AS RESOURCEID,
+<!-- 				DATE_FORMAT(RIGHT_DATE,'%Y-%M-%D') AS START, -->
+				TO_CHAR(ACTION_DATE,'YYYY-MM-DD') AS END,
+<!-- 				CONCAT(SYMBOL,':',CONTENT) TITLE, -->
+				SYMBOL||':'||CONTENT TITLE,
+				EVENT_TYPE
+		FROM STO_EVENT_RIGHT
+		WHERE RIGHT_DATE IS NOT NULL
+			<if test="SYMBOL !=null and SYMBOL !='' ">
+				AND SYMBOL = UPPER(#{SYMBOL})
 			</if>
-			<if test="event_type !=null and event_type !='' ">
-				and event_type = #{event_type}
+			<if test="EVENT_TYPE !=null and EVENT_TYPE !='' ">
+				AND EVENT_TYPE = #{EVENT_TYPE}
 			</if>
-		order by right_date	
+		ORDER BY RIGHT_DATE	
 			
 				
 	</select>

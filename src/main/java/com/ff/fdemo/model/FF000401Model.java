@@ -9,108 +9,108 @@ import com.ff.fdemo.utils.FFUtils;
 
 public class FF000401Model extends FFBaseModel{
 	private static final long serialVersionUID = 6701294248863642769L;
-	private String company;
-	private String companyName;
-	private String  companyNameEng;
-	private String  delistedDate;
-	private String floor;
-	private Long id;
-	private String indexCode;
-	private String industryName;
-	private String listedDate;
-	private Date listed_date;
-	private String object;
-	private String shortName;
-	private String status;
-	private String symbol;
-	public String getCompany() {
-		return company;
+	private String COMPANY;
+	private String COMPANYNAME;
+	private String  COMPANYNAMEENG;
+	private String  DELISTEDDATE;
+	private String FLOOR;
+	private Long ID;
+	private String INDEXCODE;
+	private String INSDUSTRYNAME;
+	private String LISTEDDATE;
+	private Date LISTED_DATE;
+	private String OBJECT;
+	private String SHORTNAME;
+	private String STATUS;
+	private String SYMBOL;
+	public String getCOMPANY() {
+		return COMPANY;
 	}
-	public void setCompany(String company) {
-		this.company = company;
+	public void setCOMPANY(String company) {
+		this.COMPANY = company;
 	}
-	public String getCompanyName() {
-		return companyName;
+	public String getCOMPANYNAME() {
+		return COMPANYNAME;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCOMPANYNAME(String companyName) {
+		this.COMPANYNAME = companyName;
 	}
-	public String getCompanyNameEng() {
-		return companyNameEng;
+	public String getCOMPANYNAMENG() {
+		return COMPANYNAMEENG;
 	}
-	public void setCompanyNameEng(String companyNameEng) {
-		this.companyNameEng = companyNameEng;
+	public void setCOMPANYNAMEENG(String companyNameEng) {
+		this.COMPANYNAMEENG = companyNameEng;
 	}
-	public String getDelistedDate() {
-		return delistedDate;
+	public String getDELISTEDDATE() {
+		return DELISTEDDATE;
 	}
-	public void setDelistedDate(String delistedDate) {
-		this.delistedDate = delistedDate;
+	public void setDELISTEDDATE(String delistedDate) {
+		this.DELISTEDDATE = delistedDate;
 	}
-	public String getFloor() {
-		return floor;
+	public String getFLOOR() {
+		return FLOOR;
 	}
-	public void setFloor(String floor) {
-		this.floor = floor;
+	public void setFLOOR(String floor) {
+		this.FLOOR = floor;
 	}
-	public Long getId() {
-		return id;
+	public Long getID() {
+		return ID;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setID(Long id) {
+		this.ID = id;
 	}
-	public String getIndexCode() {
-		return indexCode;
+	public String getINDEXCODE() {
+		return INDEXCODE;
 	}
-	public void setIndexCode(String indexCode) {
-		this.indexCode = indexCode;
+	public void setINDEXCODE(String indexCode) {
+		this.INDEXCODE = indexCode;
 	}
-	public String getIndustryName() {
-		return industryName;
+	public String getINDUSTRYNAME() {
+		return INSDUSTRYNAME;
 	}
-	public void setIndustryName(String industryName) {
-		this.industryName = industryName;
+	public void setINDUSTRYNAME(String industryName) {
+		this.INSDUSTRYNAME = industryName;
 	}
-	public String getListedDate() {
-		return listedDate;
+	public String getLISTEDDATE() {
+		return LISTEDDATE;
 	}
-	public void setListedDate(String listedDate) {
+	public void setLISTEDDATE(String listedDate) {
 		try {
-			listed_date = FFUtils.convertYYYY_MM_DDToDate(listedDate);
+			LISTED_DATE = FFUtils.convertYYYY_MM_DDToDate(listedDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		this.listedDate = listedDate;
+		this.LISTEDDATE = listedDate;
 	}
-	public String getObject() {
-		return object;
+	public String getOBJECT() {
+		return OBJECT;
 	}
-	public void setObject(String object) {
-		this.object = object;
+	public void setOBJECT(String object) {
+		this.OBJECT = object;
 	}
-	public String getShortName() {
-		return shortName;
+	public String getSHORTNAME() {
+		return SHORTNAME;
 	}
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
+	public void setSHORTNAME(String shortName) {
+		this.SHORTNAME = shortName;
 	}
-	public String getStatus() {
-		return status;
+	public String getSTATUS() {
+		return STATUS;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setSTATUS(String status) {
+		this.STATUS = status;
 	}
-	public String getSymbol() {
-		return symbol;
+	public String getSYMBOL() {
+		return SYMBOL;
 	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol.trim();
+	public void setSYMBOL(String symbol) {
+		this.SYMBOL = symbol.trim();
 	}
-	public Date getListed_date() {
-		return listed_date;
+	public Date getLISTED_DATE() {
+		return LISTED_DATE;
 	}
-	public void setListed_date(Date listed_date) {
-		this.listed_date = listed_date;
+	public void setLISTED_DATE(Date listed_date) {
+		this.LISTED_DATE = listed_date;
 	}
 	
 }

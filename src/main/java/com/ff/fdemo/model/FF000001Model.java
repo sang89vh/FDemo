@@ -6,52 +6,52 @@ public class FF000001Model extends FFBaseModel {
 
 	private static final long serialVersionUID = -26626542025190420L;
 
-	private String id;
-	private String resourceId;
+	private String ID;
+	private String RESOURCEID;
 	// "2016-09-07T05:00:00"
-	private String start;
+	private String START;
 	// "2016-09-07T22:00:00";
-	private String end;
-	private String title;
-	private String event_type;
-	public String getId() {
-		return id;
+	private String END;
+	private String TITLE;
+	private String EVENT_TYPE;
+	public String getID() {
+		return ID;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setID(String id) {
+		this.ID = id;
 	}
-	public String getResourceId() {
-		return resourceId;
+	public String getRESOURCEID() {
+		return RESOURCEID;
 	}
-	public void setResourceId(String resourceId) {
-		this.resourceId = resourceId;
+	public void setRESOURCEID(String resourceId) {
+		this.RESOURCEID = resourceId;
 	}
-	public String getStart() {
-		return start;
+	public String getSTART() {
+		return START;
 	}
-	public void setStart(String start) {
-		this.start = start;
+	public void setSTART(String start) {
+		this.START = start;
 	}
-	public String getEnd() {
-		if(StringUtils.isEmpty(end)){
-			return start;
+	public String getEND() {
+		if(StringUtils.isEmpty(END)){
+			return START;
 		}
-		return end;
+		return END;
 	}
-	public void setEnd(String end) {
-		this.end = end;
+	public void setEND(String end) {
+		this.END = end;
 	}
-	public String getTitle() {
-		return title;
+	public String getTITLE() {
+		return TITLE;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTITLE(String title) {
+		this.TITLE = title;
 	}
-	public String getEvent_type() {
-		return event_type;
+	public String getEVENT_TYPE() {
+		return EVENT_TYPE;
 	}
-	public void setEvent_type(String event_type) {
-		this.event_type = event_type;
+	public void setEVENT_TYPE(String event_type) {
+		this.EVENT_TYPE = event_type;
 	}
 	
 	

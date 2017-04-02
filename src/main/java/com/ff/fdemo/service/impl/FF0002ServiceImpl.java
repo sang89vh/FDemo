@@ -38,7 +38,7 @@ public class FF0002ServiceImpl implements IFF0002Service {
 			List<FF0002Model> data = ReadDailyPriceExcel.readDailyPrice(pathFile);
 			
 			for (FF0002Model prm : data) {
-				prm.setMarket(exchange);
+				prm.setMARKET(exchange);
 				try {
 					ff0002Dao.insertHistoricalPrice(prm);
 				} catch (SQLException e) {
@@ -57,7 +57,7 @@ public class FF0002ServiceImpl implements IFF0002Service {
 			List<FF0002Model> data = ReadDailyPriceCSV.readDailyPrice(pathFile);
 			
 			for (FF0002Model prm : data) {
-				prm.setMarket(exchange);
+				prm.setMARKET(exchange);
 				try {
 					ff0002Dao.insertHistoricalPrice(prm);
 				} catch (SQLException e) {

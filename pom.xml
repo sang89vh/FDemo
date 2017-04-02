@@ -109,12 +109,21 @@
 		</dependency>
 		-->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!--
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.40</version>
 		</dependency>
-
+		-->
+        <!-- ojdbc7.jar example 
+         mvn install:install-file -Dfile=C:\\Users\\Admin\\OneDrive\\FDemo\\src\\main\\webapp\\WEB-INF\\libs\\ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar
+        -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
